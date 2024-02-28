@@ -10,6 +10,9 @@
 extern "C" {
 #endif
 
+void Presionar_Bt01(lv_event_t * e);
+void Presionar_Bt02(lv_event_t * e);
+
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif

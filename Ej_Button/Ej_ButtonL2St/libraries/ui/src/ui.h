@@ -27,8 +27,27 @@ extern "C" {
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 extern lv_obj_t * ui_Screen1;
-extern lv_obj_t * ui_Bt01;
-extern lv_obj_t * ui_TextArea1;
+extern lv_obj_t * ui_Container1;
+extern lv_obj_t * ui_Container11;
+extern lv_obj_t * ui_LabSSID;
+extern lv_obj_t * ui_Label3;
+extern lv_obj_t * ui_Container12;
+extern lv_obj_t * ui_LabIP;
+extern lv_obj_t * ui_Label4;
+extern lv_obj_t * ui_Container13;
+extern lv_obj_t * ui_LabDNS;
+extern lv_obj_t * ui_Label7;
+extern lv_obj_t * ui_Container14;
+extern lv_obj_t * ui_LabMAC;
+extern lv_obj_t * ui_Label9;
+extern lv_obj_t * ui_Container2;
+void ui_event_Bt1(lv_event_t * e);
+extern lv_obj_t * ui_Bt1;
+extern lv_obj_t * ui_Label1;
+void ui_event_Bt2(lv_event_t * e);
+extern lv_obj_t * ui_Bt2;
+extern lv_obj_t * ui_Label5;
+extern lv_obj_t * ui_BtConectado;
 extern lv_obj_t * ui____initial_actions0;
 
 

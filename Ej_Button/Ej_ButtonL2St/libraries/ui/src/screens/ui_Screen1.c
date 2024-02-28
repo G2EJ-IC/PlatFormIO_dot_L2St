@@ -10,21 +10,187 @@ void ui_Screen1_screen_init(void)
     ui_Screen1 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Bt01 = lv_btn_create(ui_Screen1);
-    lv_obj_set_width(ui_Bt01, 100);
-    lv_obj_set_height(ui_Bt01, 50);
-    lv_obj_set_align(ui_Bt01, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Bt01, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_clear_flag(ui_Bt01, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Container1 = lv_obj_create(ui_Screen1);
+    lv_obj_remove_style_all(ui_Container1);
+    lv_obj_set_width(ui_Container1, lv_pct(90));
+    lv_obj_set_height(ui_Container1, lv_pct(80));
+    lv_obj_set_x(ui_Container1, 0);
+    lv_obj_set_y(ui_Container1, lv_pct(9));
+    lv_obj_set_align(ui_Container1, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container1, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_Container1, lv_color_hex(0xC8C8C8), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Container1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui_Container1, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui_Container1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container1, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_TextArea1 = lv_textarea_create(ui_Bt01);
-    lv_obj_set_width(ui_TextArea1, lv_pct(90));
-    lv_obj_set_height(ui_TextArea1, lv_pct(90));
-    lv_obj_set_align(ui_TextArea1, LV_ALIGN_CENTER);
-    lv_textarea_set_max_length(ui_TextArea1, 25);
-    lv_textarea_set_text(ui_TextArea1, "Bt01");
-    lv_textarea_set_placeholder_text(ui_TextArea1, "Placeholder...");
+    ui_Container11 = lv_obj_create(ui_Container1);
+    lv_obj_remove_style_all(ui_Container11);
+    lv_obj_set_width(ui_Container11, lv_pct(98));
+    lv_obj_set_height(ui_Container11, lv_pct(23));
+    lv_obj_set_x(ui_Container11, 0);
+    lv_obj_set_y(ui_Container11, lv_pct(-38));
+    lv_obj_set_align(ui_Container11, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container11, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container11, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui_Container11, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui_Container11, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container11, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    ui_LabSSID = lv_label_create(ui_Container11);
+    lv_obj_set_width(ui_LabSSID, lv_pct(60));
+    lv_obj_set_height(ui_LabSSID, lv_pct(35));
+    lv_obj_set_x(ui_LabSSID, lv_pct(16));
+    lv_obj_set_y(ui_LabSSID, lv_pct(0));
+    lv_obj_set_align(ui_LabSSID, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LabSSID, "xx.xx.xx.xx");
 
+    ui_Label3 = lv_label_create(ui_Container11);
+    lv_obj_set_width(ui_Label3, lv_pct(29));
+    lv_obj_set_height(ui_Label3, lv_pct(35));
+    lv_obj_set_x(ui_Label3, lv_pct(-33));
+    lv_obj_set_y(ui_Label3, lv_pct(0));
+    lv_obj_set_align(ui_Label3, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label3, "Red WiFi (SSID).:");
+
+    ui_Container12 = lv_obj_create(ui_Container1);
+    lv_obj_remove_style_all(ui_Container12);
+    lv_obj_set_width(ui_Container12, lv_pct(98));
+    lv_obj_set_height(ui_Container12, lv_pct(23));
+    lv_obj_set_x(ui_Container12, 0);
+    lv_obj_set_y(ui_Container12, -33);
+    lv_obj_set_align(ui_Container12, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container12, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container12, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container12, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_LabIP = lv_label_create(ui_Container12);
+    lv_obj_set_width(ui_LabIP, lv_pct(60));
+    lv_obj_set_height(ui_LabIP, lv_pct(35));
+    lv_obj_set_x(ui_LabIP, lv_pct(16));
+    lv_obj_set_y(ui_LabIP, lv_pct(0));
+    lv_obj_set_align(ui_LabIP, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LabIP, "xx.xx.xx.xx");
+
+    ui_Label4 = lv_label_create(ui_Container12);
+    lv_obj_set_width(ui_Label4, lv_pct(29));
+    lv_obj_set_height(ui_Label4, lv_pct(35));
+    lv_obj_set_x(ui_Label4, lv_pct(-33));
+    lv_obj_set_y(ui_Label4, lv_pct(0));
+    lv_obj_set_align(ui_Label4, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label4, "Direccion IP.:");
+
+    ui_Container13 = lv_obj_create(ui_Container1);
+    lv_obj_remove_style_all(ui_Container13);
+    lv_obj_set_width(ui_Container13, lv_pct(98));
+    lv_obj_set_height(ui_Container13, lv_pct(23));
+    lv_obj_set_x(ui_Container13, 0);
+    lv_obj_set_y(ui_Container13, 30);
+    lv_obj_set_align(ui_Container13, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container13, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container13, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container13, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_LabDNS = lv_label_create(ui_Container13);
+    lv_obj_set_width(ui_LabDNS, lv_pct(60));
+    lv_obj_set_height(ui_LabDNS, lv_pct(35));
+    lv_obj_set_x(ui_LabDNS, lv_pct(16));
+    lv_obj_set_y(ui_LabDNS, lv_pct(0));
+    lv_obj_set_align(ui_LabDNS, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LabDNS, "xx.xx.xx.xx");
+
+    ui_Label7 = lv_label_create(ui_Container13);
+    lv_obj_set_width(ui_Label7, lv_pct(29));
+    lv_obj_set_height(ui_Label7, lv_pct(35));
+    lv_obj_set_x(ui_Label7, lv_pct(-33));
+    lv_obj_set_y(ui_Label7, lv_pct(0));
+    lv_obj_set_align(ui_Label7, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label7, "Direccion DNS.:");
+
+    ui_Container14 = lv_obj_create(ui_Container1);
+    lv_obj_remove_style_all(ui_Container14);
+    lv_obj_set_width(ui_Container14, lv_pct(98));
+    lv_obj_set_height(ui_Container14, lv_pct(23));
+    lv_obj_set_x(ui_Container14, 0);
+    lv_obj_set_y(ui_Container14, 94);
+    lv_obj_set_align(ui_Container14, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container14, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container14, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container14, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_LabMAC = lv_label_create(ui_Container14);
+    lv_obj_set_width(ui_LabMAC, lv_pct(60));
+    lv_obj_set_height(ui_LabMAC, lv_pct(35));
+    lv_obj_set_x(ui_LabMAC, lv_pct(16));
+    lv_obj_set_y(ui_LabMAC, lv_pct(0));
+    lv_obj_set_align(ui_LabMAC, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LabMAC, "xx:xx:xx:xx:xx:xx");
+
+    ui_Label9 = lv_label_create(ui_Container14);
+    lv_obj_set_width(ui_Label9, lv_pct(29));
+    lv_obj_set_height(ui_Label9, lv_pct(35));
+    lv_obj_set_x(ui_Label9, lv_pct(-33));
+    lv_obj_set_y(ui_Label9, lv_pct(0));
+    lv_obj_set_align(ui_Label9, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label9, "Direccion MAC.:");
+
+    ui_Container2 = lv_obj_create(ui_Screen1);
+    lv_obj_remove_style_all(ui_Container2);
+    lv_obj_set_width(ui_Container2, lv_pct(90));
+    lv_obj_set_height(ui_Container2, lv_pct(17));
+    lv_obj_set_x(ui_Container2, 0);
+    lv_obj_set_y(ui_Container2, -130);
+    lv_obj_set_align(ui_Container2, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container2, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_Container2, lv_color_hex(0xC8C8C8), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Container2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui_Container2, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui_Container2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container2, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Bt1 = lv_btn_create(ui_Container2);
+    lv_obj_set_width(ui_Bt1, 140);
+    lv_obj_set_height(ui_Bt1, 40);
+    lv_obj_set_x(ui_Bt1, lv_pct(-27));
+    lv_obj_set_y(ui_Bt1, lv_pct(0));
+    lv_obj_set_align(ui_Bt1, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Bt1, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Bt1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Label1 = lv_label_create(ui_Bt1);
+    lv_obj_set_width(ui_Label1, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label1, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label1, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label1, "Conectar WiFi");
+
+    ui_Bt2 = lv_btn_create(ui_Container2);
+    lv_obj_set_width(ui_Bt2, 140);
+    lv_obj_set_height(ui_Bt2, 40);
+    lv_obj_set_x(ui_Bt2, lv_pct(27));
+    lv_obj_set_y(ui_Bt2, lv_pct(0));
+    lv_obj_set_align(ui_Bt2, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Bt2, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Bt2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Label5 = lv_label_create(ui_Bt2);
+    lv_obj_set_width(ui_Label5, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label5, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label5, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label5, "Desconectar WiFi");
+
+    ui_BtConectado = lv_btn_create(ui_Container2);
+    lv_obj_set_width(ui_BtConectado, 35);
+    lv_obj_set_height(ui_BtConectado, 35);
+    lv_obj_set_align(ui_BtConectado, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_BtConectado, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_BtConectado, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_BtConectado, 18, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_BtConectado, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_add_event_cb(ui_Bt1, ui_event_Bt1, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Bt2, ui_event_Bt2, LV_EVENT_ALL, NULL);
 
 }

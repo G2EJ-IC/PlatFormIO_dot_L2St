@@ -12,8 +12,27 @@
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 lv_obj_t * ui_Screen1;
-lv_obj_t * ui_Bt01;
-lv_obj_t * ui_TextArea1;
+lv_obj_t * ui_Container1;
+lv_obj_t * ui_Container11;
+lv_obj_t * ui_LabSSID;
+lv_obj_t * ui_Label3;
+lv_obj_t * ui_Container12;
+lv_obj_t * ui_LabIP;
+lv_obj_t * ui_Label4;
+lv_obj_t * ui_Container13;
+lv_obj_t * ui_LabDNS;
+lv_obj_t * ui_Label7;
+lv_obj_t * ui_Container14;
+lv_obj_t * ui_LabMAC;
+lv_obj_t * ui_Label9;
+lv_obj_t * ui_Container2;
+void ui_event_Bt1(lv_event_t * e);
+lv_obj_t * ui_Bt1;
+lv_obj_t * ui_Label1;
+void ui_event_Bt2(lv_event_t * e);
+lv_obj_t * ui_Bt2;
+lv_obj_t * ui_Label5;
+lv_obj_t * ui_BtConectado;
 lv_obj_t * ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
@@ -27,6 +46,22 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+void ui_event_Bt1(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        Presionar_Bt01(e);
+    }
+}
+void ui_event_Bt2(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        Presionar_Bt02(e);
+    }
+}
 
 ///////////////////// SCREENS ////////////////////
 
