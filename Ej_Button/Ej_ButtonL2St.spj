@@ -3533,7 +3533,7 @@
                 "flags": 34,
                 "strtype": "OBJECT/Size",
                 "intarray": [
-                  90,
+                  95,
                   80
                 ],
                 "InheritedType": 7
@@ -3796,7 +3796,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER"
+            "saved_objtypeKey": "CONTAINER",
+            "tree_closed": true
           },
           {
             "guid": "GUID32756733-983570S791359",
@@ -4353,7 +4354,7 @@
                   {
                     "disabled": false,
                     "nid": 1188481132,
-                    "strtype": "BUTTON/EventHandler",
+                    "strtype": "_event/EventHandler",
                     "strval": "CLICKED",
                     "childs": [
                       {
@@ -4376,7 +4377,7 @@
                       },
                       {
                         "nid": 1145881360,
-                        "strtype": "_custom/action",
+                        "strtype": "_event/action",
                         "strval": "CALL FUNCTION",
                         "childs": [
                           {
@@ -4970,7 +4971,7 @@
                   {
                     "disabled": false,
                     "nid": 1655711099,
-                    "strtype": "BUTTON/EventHandler",
+                    "strtype": "_event/EventHandler",
                     "strval": "CLICKED",
                     "childs": [
                       {
@@ -4993,7 +4994,7 @@
                       },
                       {
                         "nid": 1531922515,
-                        "strtype": "_custom/action",
+                        "strtype": "_event/action",
                         "strval": "CALL FUNCTION",
                         "childs": [
                           {
@@ -5373,7 +5374,7 @@
                 "flags": 34,
                 "strtype": "OBJECT/Size",
                 "intarray": [
-                  90,
+                  95,
                   17
                 ],
                 "InheritedType": 7
@@ -5636,7 +5637,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER"
+            "saved_objtypeKey": "CONTAINER",
+            "tree_closed": true
           }
         ],
         "isPage": true,

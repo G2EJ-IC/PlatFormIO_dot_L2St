@@ -8,9 +8,6 @@
 #include <WiFiManager.h>
 #include <ConectarWiFi_IoT.h>
 
-
-
-
 void Presionar_Bt01(lv_event_t * e) {
 	lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t * btn = lv_event_get_target(e);
