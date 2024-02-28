@@ -3,17 +3,10 @@
 
 #include <Arduino.h>
 
-// #if defined(ESP8266)
-//     //Librerias WiFiManager
-//     #include <ESP8266WiFi.h>
-//     //#include <wm_strings_en.h>
-//     #include <ESP8266WebServer.h>
-// #elif defined(ESP32)
-//     //Librerias WiFiManager
-//     #include <WiFi.h>
-//     //#include <wm_strings_en.h>
-//     #include <WebServer.h>
-// #endif
+// //Librerias WiFiManager
+// #include <WiFi.h>
+// //#include <wm_strings_en.h>
+// #include <WebServer.h>
 
 // #include <DNSServer.h>
 // #include <WiFiManager.h>

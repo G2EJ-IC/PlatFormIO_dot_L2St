@@ -4,6 +4,12 @@
 // Project name: Ej_ButtonL2St
 
 #include "ui.h"
+#include <WiFi.h>
+#include <WiFiManager.h>
+#include <ConectarWiFi_IoT.h>
+
+
+
 
 void Presionar_Bt01(lv_event_t * e) {
 	lv_event_code_t code = lv_event_get_code(e);

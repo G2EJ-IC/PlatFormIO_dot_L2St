@@ -2,6 +2,10 @@
 #include "ClassILI9488.h"
 #include <ui.h>
 
+#include <WiFi.h>
+#include <WiFiManager.h>
+#include <ConectarWiFi_IoT.h>
+
 #define LVGL_REFRESH_TIME (5u)      // 5 milliseconds
 #define PinLED 2 // LED_BUILTIN
 static LGFX tft;
