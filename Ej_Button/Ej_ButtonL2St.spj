@@ -339,7 +339,7 @@
                   {
                     "disabled": false,
                     "nid": -404581912,
-                    "strtype": "TEXTAREA/EventHandler",
+                    "strtype": "_event/EventHandler",
                     "strval": "CLICKED",
                     "childs": [
                       {
@@ -362,7 +362,7 @@
                       },
                       {
                         "nid": -1068566135,
-                        "strtype": "_custom/action",
+                        "strtype": "_event/action",
                         "strval": "BAR_PROPERTY",
                         "childs": [
                           {
@@ -919,12 +919,12 @@
     "theme_dark": false,
     "theme_color1": 5,
     "theme_color2": 0,
-    "uiExportFolderPath": "",
-    "projectExportFolderPath": "",
-    "backup_cnt": 2,
+    "uiExportFolderPath": "C:\\xL2St\\PlatFormIO_dot_L2St\\Ej_Button\\Ej_ButtonL2St\\./libraries/ui/src",
+    "projectExportFolderPath": "C:\\xL2St\\PlatFormIO_dot_L2St\\Ej_Button\\Ej_ButtonL2St",
+    "backup_cnt": 4,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.6",
-    "callfuncsexport": "C_FILE",
+    "callfuncsexport": "CPP_FILE",
     "lvgl_include_path": "",
     "BitDepth": 16,
     "Name": "Ej_ButtonL2St"
