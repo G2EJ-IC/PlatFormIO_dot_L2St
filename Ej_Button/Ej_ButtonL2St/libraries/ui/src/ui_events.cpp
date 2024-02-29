@@ -14,3 +14,8 @@ void Presionar_Bt02(lv_event_t * e)
 {
 	// Your code here
 }
+
+void Presionar_Bt03(lv_event_t * e)
+{
+	// Your code here
+}

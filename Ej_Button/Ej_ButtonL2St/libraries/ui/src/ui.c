@@ -36,6 +36,14 @@ lv_obj_t * ui_Bt2;
 lv_obj_t * ui_Label5;
 lv_obj_t * ui_BtConectado;
 lv_obj_t * ui_TabPage1;
+lv_obj_t * ui_Container3;
+void ui_event_Bt3(lv_event_t * e);
+lv_obj_t * ui_Bt3;
+lv_obj_t * ui_Label2;
+void ui_event_Bt4(lv_event_t * e);
+lv_obj_t * ui_Bt4;
+lv_obj_t * ui_Label6;
+lv_obj_t * ui_BtConectado1;
 lv_obj_t * ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
@@ -63,6 +71,22 @@ void ui_event_Bt2(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Presionar_Bt02(e);
+    }
+}
+void ui_event_Bt3(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        Presionar_Bt01(e);
+    }
+}
+void ui_event_Bt4(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        Presionar_Bt03(e);
     }
 }
 

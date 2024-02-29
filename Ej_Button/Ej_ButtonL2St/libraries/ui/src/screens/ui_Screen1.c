@@ -207,7 +207,64 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_bg_color(ui_TabPage1, lv_color_hex(0xC8C8C8), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_TabPage1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    ui_Container3 = lv_obj_create(ui_TabPage1);
+    lv_obj_remove_style_all(ui_Container3);
+    lv_obj_set_width(ui_Container3, lv_pct(100));
+    lv_obj_set_height(ui_Container3, lv_pct(17));
+    lv_obj_set_x(ui_Container3, 0);
+    lv_obj_set_y(ui_Container3, lv_pct(-45));
+    lv_obj_set_align(ui_Container3, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container3, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_Container3, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_Container3, lv_color_hex(0xC8C8C8), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Container3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui_Container3, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui_Container3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_Container3, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Bt3 = lv_btn_create(ui_Container3);
+    lv_obj_set_width(ui_Bt3, lv_pct(35));
+    lv_obj_set_height(ui_Bt3, lv_pct(85));
+    lv_obj_set_x(ui_Bt3, lv_pct(-25));
+    lv_obj_set_y(ui_Bt3, lv_pct(0));
+    lv_obj_set_align(ui_Bt3, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Bt3, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Bt3, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Label2 = lv_label_create(ui_Bt3);
+    lv_obj_set_width(ui_Label2, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label2, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label2, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label2, "Conectar WiFi");
+
+    ui_Bt4 = lv_btn_create(ui_Container3);
+    lv_obj_set_width(ui_Bt4, lv_pct(35));
+    lv_obj_set_height(ui_Bt4, lv_pct(85));
+    lv_obj_set_x(ui_Bt4, lv_pct(25));
+    lv_obj_set_y(ui_Bt4, lv_pct(0));
+    lv_obj_set_align(ui_Bt4, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Bt4, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Bt4, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Label6 = lv_label_create(ui_Bt4);
+    lv_obj_set_width(ui_Label6, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label6, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label6, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label6, "Resetear WiFi");
+
+    ui_BtConectado1 = lv_btn_create(ui_Container3);
+    lv_obj_set_width(ui_BtConectado1, 30);
+    lv_obj_set_height(ui_BtConectado1, 30);
+    lv_obj_set_align(ui_BtConectado1, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_BtConectado1, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_BtConectado1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_BtConectado1, 18, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_BtConectado1, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_BtConectado1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
     lv_obj_add_event_cb(ui_Bt1, ui_event_Bt1, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Bt2, ui_event_Bt2, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Bt3, ui_event_Bt3, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Bt4, ui_event_Bt4, LV_EVENT_ALL, NULL);
 
 }

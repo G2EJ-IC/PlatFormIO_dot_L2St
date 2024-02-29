@@ -51,6 +51,14 @@ extern lv_obj_t * ui_Bt2;
 extern lv_obj_t * ui_Label5;
 extern lv_obj_t * ui_BtConectado;
 extern lv_obj_t * ui_TabPage1;
+extern lv_obj_t * ui_Container3;
+void ui_event_Bt3(lv_event_t * e);
+extern lv_obj_t * ui_Bt3;
+extern lv_obj_t * ui_Label2;
+void ui_event_Bt4(lv_event_t * e);
+extern lv_obj_t * ui_Bt4;
+extern lv_obj_t * ui_Label6;
+extern lv_obj_t * ui_BtConectado1;
 extern lv_obj_t * ui____initial_actions0;
 
 
