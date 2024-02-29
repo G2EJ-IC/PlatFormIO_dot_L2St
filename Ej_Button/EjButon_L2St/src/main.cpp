@@ -31,6 +31,10 @@ void my_print(const char *buf) {
 }
 #endif
 
+//************************************************************************************************
+void ReConectarWiFi_AIoT();
+//************************************************************************************************
+
 /* Display flushing */
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p) {
   uint32_t w = (area->x2 - area->x1 + 1);
@@ -72,6 +76,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 void setup() {
   Serial.begin(115200); /* prepare for possible serial debug */
   pinMode (PinLED, OUTPUT);
+  WiFi.mode(WIFI_STA);
 
   String LVGL_Arduino = "Hello Arduino! ";
   LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
@@ -88,13 +93,13 @@ void setup() {
   tft.begin();        /* TFT init */
   tft.setRotation(3); /* Landscape orientation, flipped */
 
-  ////////////////////////////////////////////////////////////////////////////////////
+  //************************************************************************************************
   //tft.setBrightness(255);
   //uint16_t calData[] = { 120, 3120, 170, 170, 4880, 3030, 4770, 50};
   uint16_t calData[] = {239, 3926, 233, 265, 3856, 3896, 3714, 308};
   tft.setTouchCalibrate(calData);
   lv_init();
-  ////////////////////////////////////////////////////////////////////////////////////  
+  //************************************************************************************************ 
 
   lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * screenHeight / N);
 
@@ -128,5 +133,28 @@ void loop() {
   if(millis() > asyncDelay2) {
     asyncDelay2+=delayLength;
     digitalWrite(PinLED, !digitalRead(PinLED));
+    if (WiFi.status() != WL_CONNECTED) {
+      ReConectarWiFi_AIoT();
+    }
   }
 }
+
+//************************************************************************************************
+void ReConectarWiFi_AIoT() {
+  ConectarWiFi_IoT();
+  if (WiFi.status() == WL_CONNECTED) {    
+    lv_label_set_text(ui_LabSSID, WiFi.SSID().c_str());
+    lv_label_set_text(ui_LabIP, WiFi.localIP().toString().c_str());
+    lv_label_set_text(ui_LabDNS, WiFi.dnsIP().toString().c_str());
+    lv_label_set_text(ui_LabMAC, WiFi.macAddress().c_str());		
+    lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
+  }
+  else {
+    lv_label_set_text(ui_LabSSID, "xx.xx.xx.xx");
+    lv_label_set_text(ui_LabIP, "xx.xx.xx.xx");
+    lv_label_set_text(ui_LabDNS, "xx.xx.xx.xx");
+    lv_label_set_text(ui_LabMAC, "xx:xx:xx:xx:xx:xx");
+    lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+  }
+}
+//************************************************************************************************

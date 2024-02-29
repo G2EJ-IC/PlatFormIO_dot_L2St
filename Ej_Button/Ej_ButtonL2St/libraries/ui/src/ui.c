@@ -12,6 +12,8 @@
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 lv_obj_t * ui_Screen1;
+lv_obj_t * ui_TabView1;
+lv_obj_t * ui_TabPage2;
 lv_obj_t * ui_Container1;
 lv_obj_t * ui_Container11;
 lv_obj_t * ui_LabSSID;
@@ -33,6 +35,7 @@ void ui_event_Bt2(lv_event_t * e);
 lv_obj_t * ui_Bt2;
 lv_obj_t * ui_Label5;
 lv_obj_t * ui_BtConectado;
+lv_obj_t * ui_TabPage1;
 lv_obj_t * ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////

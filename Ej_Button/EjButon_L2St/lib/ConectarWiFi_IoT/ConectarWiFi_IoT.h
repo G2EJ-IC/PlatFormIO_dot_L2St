@@ -23,6 +23,13 @@ void ResetWiFi_IoT();
  * @param Parámetros.
  * @return Salida. 
  */
+void DisconnectWiFi_IoT();
+
+/**
+ * @brief Breve descripción.
+ * @param Parámetros.
+ * @return Salida. 
+ */
 void ConectarWiFi_IoT();
 
 #endif // __CONECTARWIFI_IOT_H__

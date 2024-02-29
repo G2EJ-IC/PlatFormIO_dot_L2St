@@ -31,6 +31,13 @@ void ResetWiFi_IoT() {
     Serial << "\r\n\n\n\nReseteo de Redes WiFi Guardadas.... "; 
 }
 
+void DisconnectWiFi_IoT() {
+    Serial << "\r\n";
+    //Desconectar Configuración.
+    wifiManager.disconnect();
+    Serial << "\r\n\n\n\nDesconección de La Red WiFi.... "; 
+}
+
 void ConectarWiFi_IoT() {
     if (WiFi.status() != WL_CONNECTED) {
         //---------------------------Monitor serial-----------------------------//
@@ -44,16 +51,24 @@ void ConectarWiFi_IoT() {
         Serial << "\r\n\n";
         Serial << "\r\nPor favor, conecte el celular a la red (.:: AIoT_NodeESP32 ::.) y configure WiFi.... ";
         Serial << "\r\n\n\n";
-
+        WiFi.mode(WIFI_STA);
         //Crear AP y Portal Cautivo.
         Conecto = wifiManager.autoConnect(".:: AIoT_NodeESP32 ::.");
         
         if (!Conecto) {
             Serial << "\r\nFallo la Conección (timeout - NOK)";
-            ESP.restart();
-            delay(1000);
+            // ESP.restart();
+            // delay(1000);
         }
-
+        // 266:	  WL_NO_SHIELD
+        // 0:	  	WL_IDLE_STATUS 
+        // 1:	  	WL_NO_SSID_AVAIL
+        // 2:	  	WL_SCAN_COMPLETED
+        // 3:	  	WL_CONNECTED
+        // 4:	  	WL_CONNECT_FAILED
+        // 5:   	WL_CONNECTION_LOST
+        // 6:	  	WL_DISCONNECTED
+        // if(WiFi.status == something)
         Serial << "\r\n\n\n\nYa esta conectado.... ";
 
         if (WiFi.status() == WL_CONNECTED) {
