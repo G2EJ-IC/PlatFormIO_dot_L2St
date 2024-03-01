@@ -22,6 +22,8 @@ static const uint16_t N = 20u; // N = {10, 12, 16, 20, 24, 25, 32}
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * screenHeight / N];
+// static lv_color_t buf[screenWidth * screenHeight / 10];
+// static lv_color_t buf[screenWidth * 10];
 
 #if LV_USE_LOG != 0
 /* Serial debugging */
