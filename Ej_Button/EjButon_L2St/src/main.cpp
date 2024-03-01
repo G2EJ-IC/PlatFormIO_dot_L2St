@@ -1,22 +1,24 @@
 #include <lvgl.h>
 #include "ClassILI9488.h"
 #include <ui.h>
-
 #include <WiFi.h>
 #include <WiFiManager.h>
 #include <ConectarWiFi_IoT.h>
 
 #define LVGL_REFRESH_TIME (5u)      // 5 milliseconds
-#define PinLED 2 // LED_BUILTIN
+#define PinLED  2 // LED_BUILTIN
 static LGFX tft;
 
-TaskHandle_t Task2;
+TaskHandle_t Task2, Task3;
 SemaphoreHandle_t cuentaMutex;
 
 unsigned long asyncDelay1 = 0;
 unsigned long asyncDelay2 = 0;
 int delayLength = 5000;
 static uint32_t lvgl_refresh_timestamp = 5u;
+
+// Temporizador para apagar la pantalla después de un minuto de inactividad
+lv_timer_t *screen_off_timer;
 
 /*Change to your screen resolution*/
 static const uint16_t screenWidth = 480;
@@ -38,6 +40,7 @@ void my_print(const char *buf) {
 
 //************************************************************************************************
 void loop2(void *);
+void loop3(void *);
 void StatusWiFi_AIoT();
 void TestHwm(const char *);
 //************************************************************************************************
@@ -82,7 +85,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 
 void setup() {
   Serial.begin(115200); /* prepare for possible serial debug */
-  pinMode (PinLED, OUTPUT);
+  pinMode(PinLED, OUTPUT);
   WiFi.mode(WIFI_STA);
 
   /************************************FreeRTOS*******************************************/
@@ -90,15 +93,28 @@ void setup() {
   taskCreationResult = xTaskCreatePinnedToCore(
                         loop2, 
                         "Task_2", 
-                        10000, 
+                        9216, 
                         NULL, 
                         1, 
                         &Task2, 
                         0);
   if (taskCreationResult != pdPASS) {
-    Serial.println("Error al crear Task1");
+    Serial.println("Error al crear Task2");
     while (true);
   }
+  taskCreationResult = xTaskCreatePinnedToCore(
+                        loop3, 
+                        "Task_3", 
+                        4096, 
+                        NULL, 
+                        1, 
+                        &Task3, 
+                        0);
+  if (taskCreationResult != pdPASS) {
+    Serial.println("Error al crear Task3");
+    while (true);
+  }
+  cuentaMutex = xSemaphoreCreateMutex();
   if (cuentaMutex == NULL) {
     Serial.println("Error al crear semáforo");
     while (true);
@@ -153,22 +169,31 @@ void setup() {
 }
 
 void loop() {
-  if(millis() > asyncDelay1) {
-    asyncDelay1+=lvgl_refresh_timestamp;
-    lv_timer_handler(); /* let the GUI do its work */
-  }
+  delay(5000);
+  Serial.println("================================================================================");
+  TestHwm("loop");
+  Serial.println(".:: En núcleo -> " +  String(xPortGetCoreID()) + " ::.");
 }
 //************************************************************************************************
 void loop2(void *parameter) {
-  for(;;){
+  for(;;){    
+    vTaskDelay(pdMS_TO_TICKS(5000));
+    StatusWiFi_AIoT();
+    Serial.println("================================================================================");
+    TestHwm("loop2");
+    Serial.println(".:: En núcleo -> " +  String(xPortGetCoreID()) + " ::.");
+  }
+}
+void loop3(void *parameter) {
+  for(;;){    
+    vTaskDelay(pdMS_TO_TICKS(5));
+    lv_timer_handler();
     if(millis() > asyncDelay2) {
-      asyncDelay2+=delayLength;
       digitalWrite(PinLED, !digitalRead(PinLED));
-      if (WiFi.status() != WL_CONNECTED) {
-        StatusWiFi_AIoT();
-      }
-      TestHwm("loop");
-      TestHwm("loop2");
+      asyncDelay2+=delayLength;      
+      Serial.println("================================================================================");
+      TestHwm("loop3");
+      Serial.println(".:: En núcleo -> " +  String(xPortGetCoreID()) + " ::.");
     }
   }
 }
