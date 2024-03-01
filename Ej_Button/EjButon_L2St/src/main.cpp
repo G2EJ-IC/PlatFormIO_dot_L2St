@@ -10,6 +10,9 @@
 #define PinLED 2 // LED_BUILTIN
 static LGFX tft;
 
+TaskHandle_t Task2;
+SemaphoreHandle_t cuentaMutex;
+
 unsigned long asyncDelay1 = 0;
 unsigned long asyncDelay2 = 0;
 int delayLength = 5000;
@@ -34,7 +37,9 @@ void my_print(const char *buf) {
 #endif
 
 //************************************************************************************************
+void loop2(void *);
 void StatusWiFi_AIoT();
+void TestHwm(const char *);
 //************************************************************************************************
 
 /* Display flushing */
@@ -79,6 +84,26 @@ void setup() {
   Serial.begin(115200); /* prepare for possible serial debug */
   pinMode (PinLED, OUTPUT);
   WiFi.mode(WIFI_STA);
+
+  /************************************FreeRTOS*******************************************/
+  BaseType_t taskCreationResult;
+  taskCreationResult = xTaskCreatePinnedToCore(
+                        loop2, 
+                        "Task_2", 
+                        10000, 
+                        NULL, 
+                        1, 
+                        &Task2, 
+                        0);
+  if (taskCreationResult != pdPASS) {
+    Serial.println("Error al crear Task1");
+    while (true);
+  }
+  if (cuentaMutex == NULL) {
+    Serial.println("Error al crear semáforo");
+    while (true);
+  }
+  /***************************************************************************************/
 
   String LVGL_Arduino = "Hello Arduino! ";
   LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
@@ -132,15 +157,21 @@ void loop() {
     asyncDelay1+=lvgl_refresh_timestamp;
     lv_timer_handler(); /* let the GUI do its work */
   }
-  if(millis() > asyncDelay2) {
-    asyncDelay2+=delayLength;
-    digitalWrite(PinLED, !digitalRead(PinLED));
-    if (WiFi.status() != WL_CONNECTED) {
-      StatusWiFi_AIoT();
+}
+//************************************************************************************************
+void loop2(void *parameter) {
+  for(;;){
+    if(millis() > asyncDelay2) {
+      asyncDelay2+=delayLength;
+      digitalWrite(PinLED, !digitalRead(PinLED));
+      if (WiFi.status() != WL_CONNECTED) {
+        StatusWiFi_AIoT();
+      }
+      TestHwm("loop");
+      TestHwm("loop2");
     }
   }
 }
-
 //************************************************************************************************
 void StatusWiFi_AIoT() {
     if (WiFi.status() == WL_CONNECTED) {    
@@ -159,5 +190,11 @@ void StatusWiFi_AIoT() {
     lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui_BtConectado1, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
   }
+}
+
+void TestHwm(const char *taskName) {
+  int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);
+  Serial.println(" ");
+  Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n",taskName, stack_hwm_temp);
 }
 //************************************************************************************************

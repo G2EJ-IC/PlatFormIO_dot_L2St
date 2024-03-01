@@ -48,9 +48,9 @@ void setup() {
 }
 
 void loop() {
+  delay(1111);
   Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
   Serial.println("\t\t\t Loop uno (1) - 🤯🤯🤯");
-  delay(1111);
   cuenta++;
   Serial.println("desde loop -> " + String(cuenta));
   Serial.println("================================================================================");
@@ -60,10 +60,9 @@ void loop() {
 
 void loop2(void *parameter){
   for(;;){
+    vTaskDelay(pdMS_TO_TICKS(2222));
     Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
     Serial.println("\t\t\t Loop dos (2) - 🤯🤯🤯");
-    vTaskDelay(pdMS_TO_TICKS(2222));
-    // delay(100);
     cuenta++;
     Serial.println("desde loop 2 -> " + String(cuenta));
     Serial.println("================================================================================");
@@ -74,10 +73,9 @@ void loop2(void *parameter){
 
 void loop3(void *parameter){
   for(;;){
-    Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
-    Serial.println("\t\t\t Loop tres (3) - 🤯🤯🤯");
     vTaskDelay(pdMS_TO_TICKS(3333));
-    // delay(2000);
+    Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
+    Serial.println("\t\t\t Loop tres (3) - 🤯🤯🤯");    
     cuenta++;
     Serial.println("desde loop 3 -> " + String(cuenta));
     Serial.println("================================================================================");
