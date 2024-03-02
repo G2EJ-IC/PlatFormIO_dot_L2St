@@ -5,17 +5,27 @@
 
 #include "ui.h"
 
-void Presionar_Bt01(lv_event_t * e)
+void Presionar_Bt11(lv_event_t * e)
 {
 	// Your code here
 }
 
-void Presionar_Bt02(lv_event_t * e)
+void Presionar_Bt12(lv_event_t * e)
 {
 	// Your code here
 }
 
-void Presionar_Bt03(lv_event_t * e)
+void Presionar_Bt21(lv_event_t * e)
+{
+	// Your code here
+}
+
+void Presionar_Bt22(lv_event_t * e)
+{
+	// Your code here
+}
+
+void Presionar_BtOk(lv_event_t * e)
 {
 	// Your code here
 }

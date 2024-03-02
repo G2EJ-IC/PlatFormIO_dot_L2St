@@ -1,5 +1,5 @@
-#ifndef __CONECTARWIFI_IOT_H__
-#define __CONECTARWIFI_IOT_H__
+#ifndef __CONECTARWIFI_AIOT_H__
+#define __CONECTARWIFI_AIOT_H__
 
 #include <Arduino.h>
 
@@ -16,20 +16,20 @@
  * @param Parámetros.
  * @return Salida. 
  */
-void ResetWiFi_IoT();
+void ResetWiFi_AIoT(void);
 
 /**
  * @brief Breve descripción.
  * @param Parámetros.
  * @return Salida. 
  */
-void DisconnectWiFi_IoT();
+void DisconnectWiFi_AIoT(void);
 
 /**
  * @brief Breve descripción.
  * @param Parámetros.
  * @return Salida. 
  */
-void ConectarWiFi_IoT();
+void ConectarWiFi_AIoT(void);
 
-#endif // __CONECTARWIFI_IOT_H__
+#endif // __CONECTARWIFI_AIOT_H__

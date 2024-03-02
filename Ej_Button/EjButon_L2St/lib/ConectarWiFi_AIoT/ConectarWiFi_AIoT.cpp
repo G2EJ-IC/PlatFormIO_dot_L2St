@@ -10,7 +10,7 @@ inline Print &operator <<(Print &obj, T arg) {
     return obj; 
 }
 
-#include <ConectarWiFi_IoT.h>
+#include <ConectarWiFi_AIoT.h>
 //Librerias WiFiManager
 #include <WiFi.h>
 //#include <wm_strings_en.h>
@@ -24,21 +24,30 @@ WiFiManager wifiManager;
 
 bool Conecto;
 
-void ResetWiFi_IoT() {
+void ResetWiFi_AIoT(void) {
     Serial << "\r\n";
     //Resetear Configuración.
     wifiManager.resetSettings();
-    Serial << "\r\n\n\n\nReseteo de Redes WiFi Guardadas.... "; 
+    Serial << "\r\n\n\n\nReseteo de Redes WiFi Guardadas.... ";
+    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
+    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
+    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
+    Serial << "\r\n\n";
+    //wifiManager.
 }
 
-void DisconnectWiFi_IoT() {
+void DisconnectWiFi_AIoT(void) {
     Serial << "\r\n";
     //Desconectar Configuración.
     wifiManager.disconnect();
-    Serial << "\r\n\n\n\nDesconección de La Red WiFi.... "; 
+    Serial << "\r\n\n\n\nDesconección de La Red WiFi.... ";
+    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
+    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
+    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
+    Serial << "\r\n\n";
 }
 
-void ConectarWiFi_IoT() {
+void ConectarWiFi_AIoT(void) {
     if (WiFi.status() != WL_CONNECTED) {
         //---------------------------Monitor serial-----------------------------//
         Serial << "\r\n";
@@ -72,6 +81,9 @@ void ConectarWiFi_IoT() {
         Serial << "\r\n\n\n\nYa esta conectado.... ";
 
         if (WiFi.status() == WL_CONNECTED) {
+            // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña           
+            Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
+            Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
             Serial << "\r\n\n";
             Serial << "\r\nConectado a WiFi (OK).: ";
             Serial << "\r\nConectado a la Red WiFi (SSID).: " << String(WiFi.SSID());
