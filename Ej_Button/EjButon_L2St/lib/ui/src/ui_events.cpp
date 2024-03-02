@@ -20,8 +20,7 @@ void Presionar_Bt11(lv_event_t * e) {
 		lv_obj_clear_flag(ui_PanelConectarWiFi, LV_OBJ_FLAG_HIDDEN);		
 		lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
 		lv_obj_set_style_bg_color(ui_BtConectado1, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
-	}
-	else {
+	} else {
 		lv_label_set_text(ui_LabSSID, "xx.xx.xx.xx");
 		lv_label_set_text(ui_LabIP, "xx.xx.xx.xx");
 		lv_label_set_text(ui_LabDNS, "xx.xx.xx.xx");
