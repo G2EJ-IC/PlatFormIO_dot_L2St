@@ -93,7 +93,7 @@ void setup() {
   taskCreationResult = xTaskCreatePinnedToCore(
                         loop2, 
                         "Task_2", 
-                        9216, 
+                        10240, 
                         NULL, 
                         1, 
                         &Task2, 
@@ -105,7 +105,7 @@ void setup() {
   taskCreationResult = xTaskCreatePinnedToCore(
                         loop3, 
                         "Task_3", 
-                        4096, 
+                        5120, 
                         NULL, 
                         1, 
                         &Task3, 
