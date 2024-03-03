@@ -1,5 +1,5 @@
 #include <lvgl.h>
-#include "ClassILI9488.h"
+#include "LovyanGFX_Class_ILI9488.h"
 #include <ui.h>
 #include <WiFi.h>
 #include <WiFiManager.h>

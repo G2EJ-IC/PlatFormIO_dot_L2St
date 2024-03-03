@@ -21,21 +21,8 @@
 // https://github.com/lovyan03/LovyanGFX
 #define LGFX_USE_V1
 #include <LovyanGFX.hpp>
-
-// Pines TFT ILI9488.
-#define LCD_SCK 	18	//	cfg.pin_sclk = 	18;
-#define LCD_MOSI 	23	//	cfg.pin_mosi = 	23;
-#define LCD_MISO 	19	//	cfg.pin_miso = 	19;
-#define LCD_SS0 	15	//	cfg.pin_cs =	15;
-#define LCD_SS1 	21	//	cfg.pin_cs =	21;
-#define LCD_SS2 	5	//	cfg.pin_cs =	5;
-
-#define SPI_DC		2	//	cfg.pin_dc   = 	2;
-#define PIN_RST		4	//	cfg.pin_rst = 	4;
-#define PIN_BL		32	//	cfg.pin_bl =	32;
-
-#define PIN_BUSY	-1	//	cfg.pin_busy = 	-1;
-#define PIN_INT		-1	//	cfg.pin_int =	-1;
+#define HMI_TFT_ILI9488_480_320
+#include "LovyanGFX_Pins_ILI9488.h"
 
 static const uint32_t TFT_WIDTH = 320;
 static const uint32_t TFT_HEIGHT = 480;
@@ -57,9 +44,9 @@ LGFX(void)
 		
 		cfg.spi_host = VSPI_HOST;  // Selecciona el SPI a usar (VSPI_HOST o HSPI_HOST)
 		cfg.spi_mode = 0;          // Establecer el modo de comunicación SPI (0 ~ 3)
-		cfg.freq_write = 40000000; // Reloj SPI al transmitir (máximo 80MHz, redondeado a 80MHz dividido por un número entero)
+		cfg.freq_write = 60000000; // Reloj SPI al transmitir (máximo 80MHz, redondeado a 80MHz dividido por un número entero) // cfg.freq_write = 60000000;
 		cfg.freq_read  = 16000000; // reloj SPI al recibir
-		cfg.spi_3wire  = false;    // Se establece en verdadero si la recepción se realiza mediante el pin MOSI
+		cfg.spi_3wire  = true;    // Se establece en verdadero si la recepción se realiza mediante el pin MOSI
 		cfg.use_lock   = true;     // Establecer verdadero para usar el bloqueo de transacciones
 		cfg.dma_channel = 1;       // Configura el canal DMA (1 o 2. 0=deshabilitar) Configura el canal DMA a usar (0=DMA no usado)
 		
