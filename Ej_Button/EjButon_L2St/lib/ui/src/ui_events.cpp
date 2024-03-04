@@ -32,8 +32,7 @@ void Presionar_Bt11(lv_event_t * e) {
 	}
 }
 
-void Presionar_Bt12(lv_event_t * e) {
-	DisconnectWiFi_AIoT();
+void Presionar_Bt12(lv_event_t * e) {	
 	lv_obj_add_flag(ui_PanelConectarWiFi, LV_OBJ_FLAG_HIDDEN);
 	lv_label_set_text(ui_LabSSID, "xx.xx.xx.xx");
 	lv_label_set_text(ui_LabIP, "xx.xx.xx.xx");
@@ -42,14 +41,15 @@ void Presionar_Bt12(lv_event_t * e) {
 	lv_label_set_text(ui_LabelConectarWiFi, "DesConectado de la Red WiFi");
 	lv_obj_clear_flag(ui_PanelConectarWiFi, LV_OBJ_FLAG_HIDDEN);
 	lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	DisconnectWiFi_AIoT();
 }
 
 void Presionar_Bt21(lv_event_t * e) {
+	Presionar_Bt22(e);
 	Presionar_Bt11(e);
 }
 
 void Presionar_Bt22(lv_event_t * e) {
-	ResetWiFi_AIoT();
 	lv_obj_add_flag(ui_PanelConectarWiFi, LV_OBJ_FLAG_HIDDEN);	
 	lv_label_set_text(ui_LabSSID, "xx.xx.xx.xx");
 	lv_label_set_text(ui_LabIP, "xx.xx.xx.xx");
@@ -58,6 +58,7 @@ void Presionar_Bt22(lv_event_t * e) {
 	lv_label_set_text(ui_LabelConectarWiFi, "Reseteo de la Red WiFi");
 	lv_obj_clear_flag(ui_PanelConectarWiFi, LV_OBJ_FLAG_HIDDEN);
 	lv_obj_set_style_bg_color(ui_BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	ResetWiFi_AIoT();
 }
 
 void Presionar_BtOk(lv_event_t * e)

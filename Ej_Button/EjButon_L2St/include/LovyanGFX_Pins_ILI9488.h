@@ -1,9 +1,20 @@
-// #define HMI_TFT_ILI9488_480_320
-// #include "pinsILI9488.h"
+//////////////////////////////////////////////////////////////////////////
+/*
+	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
+	Developing Embedded GUI with SquareLine Studio [2/2]
+	Configuración de lv_conf.h
+	Video Tutorial: https://youtu.be/b_4m1A3A2yw
+	Created by That Project
+*/
+//////////////////////////////////////////////////////////////////////////
+/*
+	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
+*/
+//////////////////////////////////////////////////////////////////////////
+#define HMI_TFT_ILI9488_480x320
 
-#if defined(HMI_TFT_ILI9488_480_320)
-
-// Pines TFT ILI9488.
+#if defined(HMI_TFT_ILI9488_480x320)
+// Pines TFT ILI9488 480x320.
 #define LCD_SCK 	18	//	cfg.pin_sclk = 	18;
 #define LCD_MOSI 	23	//	cfg.pin_mosi = 	23;
 #define LCD_MISO 	19	//	cfg.pin_miso = 	19;
@@ -18,8 +29,8 @@
 #define PIN_BUSY	-1	//	cfg.pin_busy = 	-1;
 #define PIN_INT		-1	//	cfg.pin_int =	-1;
 
-#elif defined(HMI_ESP32_4827S043) // HMI HMI_ESP32_4827S043 - ESP32-S3
-
+#elif defined(HMI_ESP32_4827S043)
+// Pines TFT HMI ESP32 4827S043 - ESP32-S3 480x320
 #define LCD_SCK     12  //  cfg.pin_sclk =  12;
 #define LCD_MOSI    13  //  cfg.pin_mosi =  13;
 #define LCD_MISO    14  //  cfg.pin_miso =  14;
