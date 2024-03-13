@@ -1,6 +1,3 @@
-#ifndef __LOVYANGFX_PINS_ILI9488_H__
-#define __LOVYANGFX_PINS_ILI9488_H__
-
 //////////////////////////////////////////////////////////////////////////
 /*
 	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
@@ -49,11 +46,3 @@
 #define PIN_INT		-1	//	cfg.pin_int =	-1;
 
 #endif
-
-//------------------------start display select
-#define BUF_SIZE 80
-#define DISP_BUF_SIZE (LV_HOR_RES_MAX * BUF_SIZE)
-#define BUF_NUM 1
-//--------------------------end display select
-
-#endif // __LOVYANGFX_PINS_ILI9488_H__
