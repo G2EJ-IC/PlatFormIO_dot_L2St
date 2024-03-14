@@ -7,7 +7,7 @@
 #include "display_service.h"
 #include "io_service.h"
 
-#define PinLED  2               // LED_BUILTIN
+#define PinLED  2   // LED_BUILTIN
 
 unsigned long asyncDelay0 = 0;
 unsigned long asyncDelay1 = 0;
