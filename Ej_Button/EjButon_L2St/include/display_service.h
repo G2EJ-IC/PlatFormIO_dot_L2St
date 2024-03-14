@@ -8,11 +8,13 @@
 class display_service
 {
 private:
-    void ICACHE_FLASH_ATTR lv_setup();
-    void ICACHE_FLASH_ATTR touch_setup();
-    void IRAM_ATTR lv_main();
-    static void IRAM_ATTR my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p);
-    static void IRAM_ATTR my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data);
+    /* Serial debugging */
+    void my_print(const char *);
+    void ICACHE_FLASH_ATTR lv_setup(void);
+    void ICACHE_FLASH_ATTR touch_setup(void);
+    void IRAM_ATTR lv_main(void);
+    static void IRAM_ATTR my_disp_flush(lv_disp_drv_t *, const lv_area_t *, lv_color_t *);
+    static void IRAM_ATTR my_touchpad_read(lv_indev_drv_t *, lv_indev_data_t *);
 
 public:
     display_service();

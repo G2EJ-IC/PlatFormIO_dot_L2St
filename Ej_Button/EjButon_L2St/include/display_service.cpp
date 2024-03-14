@@ -21,8 +21,15 @@ static const uint16_t N = 20u; // N = {10, 12, 16, 20, 24, 25, 32}
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * screenHeight / N];
 
+/* Serial debugging */
+void display_service::my_print(const char *buf)
+{
+    Serial.printf(buf);
+    Serial.flush();
+}
+
 /* =============================icache functions========================= */
-void ICACHE_FLASH_ATTR display_service::lv_setup()
+void ICACHE_FLASH_ATTR display_service::lv_setup(void)
 {
     String LVGL_Arduino = "Hello Arduino! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
@@ -31,11 +38,7 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 
 #if LV_USE_LOG != 0
     /* Serial debugging */
-    void my_print(const char *buf)
-    {
-        Serial.printf(buf);
-        Serial.flush();
-    }
+    my_print(const char *buf);
 #endif
 
     lv_init();
@@ -45,7 +48,7 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 #endif
 }
 
-void ICACHE_FLASH_ATTR display_service::touch_setup()
+void ICACHE_FLASH_ATTR display_service::touch_setup(void)
 {
     tft.begin();        /* TFT init */
     tft.setRotation(3); /* Landscape orientation, flipped */
@@ -82,7 +85,7 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
     Serial.println("Setup done");
 }
 
-void IRAM_ATTR display_service::lv_main()
+void IRAM_ATTR display_service::lv_main(void)
 {
     Serial.print(F("[INFO] LV GUI started.\n"));
     // header_create();
