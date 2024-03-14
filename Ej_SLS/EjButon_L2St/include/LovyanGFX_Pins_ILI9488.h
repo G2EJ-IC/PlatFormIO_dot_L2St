@@ -14,9 +14,9 @@
 	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
 */
 //////////////////////////////////////////////////////////////////////////
-#define HMI_TFT_ILI9488_480x320
+#define HMI_TFT_ILI9488_480x320_4in
 
-#if defined(HMI_TFT_ILI9488_480x320)
+#if defined(HMI_TFT_ILI9488_480x320_4in)
 // Pines TFT ILI9488 480x320.
 #define LCD_SCK 	18	//	cfg.pin_sclk = 	18;
 #define LCD_MOSI 	23	//	cfg.pin_mosi = 	23;
