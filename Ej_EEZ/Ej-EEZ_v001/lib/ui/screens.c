@@ -9,6 +9,22 @@
 objects_t objects;
 lv_obj_t *tick_value_change_obj;
 
+static void event_handler_cb_main_bt_conectar_wi_fi(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    void *flowState = e->user_data;
+    if (event == LV_EVENT_PRESSED) {
+        action_fn_conectar_wi_fi(e);
+    }
+}
+
+static void event_handler_cb_main_bt_des_conectar_wi_fi(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    void *flowState = e->user_data;
+    if (event == LV_EVENT_PRESSED) {
+        action_fn_des_conectar_wi_fi(e);
+    }
+}
+
 void create_screen_main() {
     void *flowState = getFlowState(0, 0);
     lv_obj_t *obj = lv_obj_create(0);
@@ -47,6 +63,7 @@ void create_screen_main() {
                             objects.bt_conectar_wi_fi = obj;
                             lv_obj_set_pos(obj, -10, -6);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
+                            lv_obj_add_event_cb(obj, event_handler_cb_main_bt_conectar_wi_fi, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
@@ -65,6 +82,7 @@ void create_screen_main() {
                             objects.bt_des_conectar_wi_fi = obj;
                             lv_obj_set_pos(obj, 269, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
+                            lv_obj_add_event_cb(obj, event_handler_cb_main_bt_des_conectar_wi_fi, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {

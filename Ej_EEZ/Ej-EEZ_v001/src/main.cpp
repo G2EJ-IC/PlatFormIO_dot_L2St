@@ -1,4 +1,6 @@
 #include <lvgl.h>
+#include "soc/timer_group_struct.h"  //for wdt
+#include "soc/timer_group_reg.h"     //for wdt
 #include "LovyanGFX_Class_ILI9488.h"
 #include <ui.h>
 #include <WiFi.h>
@@ -6,14 +8,27 @@
 #include <ConectarWiFi_AIoT.h>
 #include "display_service.h"
 #include "io_service.h"
+#include "tp_service.h"
 
 TaskHandle_t Task1 = NULL;
 TaskHandle_t Task2 = NULL;
 TaskHandle_t Task3 = NULL;
 SemaphoreHandle_t cuentaMutex;
 
-io_service io;           // load IO control service
-display_service display; // load display service
+io_service io;            // load IO control service
+display_service display;  // load display service
+tp_service tp;            // load touch pach
+
+inline void feedTheDog(){
+  // feed dog 0
+  TIMERG0.wdt_wprotect=TIMG_WDT_WKEY_VALUE; // write enable
+  TIMERG0.wdt_feed=1;                       // feed dog
+  TIMERG0.wdt_wprotect=0;                   // write protect
+  // feed dog 1
+  TIMERG1.wdt_wprotect=TIMG_WDT_WKEY_VALUE; // write enable
+  TIMERG1.wdt_feed=1;                       // feed dog
+  TIMERG1.wdt_wprotect=0;                   // write protect
+}
 
 //************************************************************************************************
 inline void loop_Task1(void);
@@ -113,12 +128,12 @@ void setup()
 
 void loop()
 {
-  delay(delayLength);
-  digitalWrite(PinLED, !digitalRead(PinLED));
-
-  Serial.println("================================================================================");
-  TestHwm("loop");
-  Serial.println(".::========== En núcleo -> " + String(xPortGetCoreID()) + " ==========::.");
+  feedTheDog();
+  if (millis() > asyncDelay0)
+  {
+    asyncDelay0 += delayLength;
+    TestHwm("loop");
+  }
 }
 //************************************************************************************************
 
@@ -146,9 +161,8 @@ void loop1(void *parameter)
     if (millis() > asyncDelay1)
     {
       asyncDelay1 += delayLength;
-      Serial.println("================================================================================");
+      digitalWrite(PinLED, !digitalRead(PinLED));
       TestHwm("loop1");
-      Serial.println(".::========== En núcleo -> " + String(xPortGetCoreID()) + " ==========::.");
     }
   }
 }
@@ -161,9 +175,7 @@ void loop2(void *parameter)
     if (millis() > asyncDelay2)
     {
       asyncDelay2 += delayLength;
-      Serial.println("================================================================================");
       TestHwm("loop2");
-      Serial.println(".::========== En núcleo -> " + String(xPortGetCoreID()) + " ==========::.");
     }
   }
 }
@@ -174,9 +186,7 @@ void loop3(void *parameter)
   {
     vTaskDelay(pdMS_TO_TICKS(5000));
     loop_Task3();
-    Serial.println("================================================================================");
-    TestHwm("loop3");
-    Serial.println(".::========== En núcleo -> " + String(xPortGetCoreID()) + " ==========::.");
+    TestHwm("loop3");    
   }
 }
 
@@ -205,6 +215,8 @@ void StatusWiFi_AIoT(void)
 void TestHwm(const char *taskName)
 {
   int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);
-  Serial.println(" ");
+  Serial.println("\n================================================================================\n");
   Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n", taskName, stack_hwm_temp);
+  Serial.println("En núcleo -> " + String(xPortGetCoreID()));
+  Serial.println("\n================================================================================\n");
 }

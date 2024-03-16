@@ -98,6 +98,11 @@
           "objID": "1729880e-ad16-4d50-e798-c9ec82ddb438",
           "fileName": "flow_def.c",
           "template": "#include <eez/core/vars.h>\n\n#include \"flow_def.h\"\n#include \"vars.h\"\n\n//${eez-studio GUI_ASSETS_DEF_COMPRESSED}\n\n//${eez-studio LVGL_NATIVE_VARS_TABLE_DEF}\n"
+        },
+        {
+          "objID": "1d2f1e70-0c62-4087-f7a6-c0384408aaae",
+          "fileName": "actions.cpp",
+          "template": "#include \"actions.h\"\n\nextern void action_fn_conectar_wi_fi(lv_event_t * e)\n{\n\n}\n\nextern void action_fn_des_conectar_wi_fi(lv_event_t * e)\n{\n\n}"
         }
       ],
       "destinationFolder": "lib\\ui",
@@ -110,7 +115,24 @@
     "structures": [],
     "enums": []
   },
-  "actions": [],
+  "actions": [
+    {
+      "objID": "e31aff17-80c1-40da-b2f3-a4a815329d6d",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "Fn_ConectarWiFi",
+      "implementationType": "native"
+    },
+    {
+      "objID": "13ba04a3-bd65-471f-d048-77979bc5414b",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "Fn_DesConectarWiFi",
+      "implementationType": "native"
+    }
+  ],
   "userPages": [
     {
       "objID": "4b40eba7-b31a-468a-b887-11dfd0b6637f",
@@ -181,7 +203,14 @@
                   "locked": false,
                   "hiddenInEditor": false,
                   "timeline": [],
-                  "eventHandlers": [],
+                  "eventHandlers": [
+                    {
+                      "objID": "30b5613d-9e28-465e-c8dd-6891e68f0185",
+                      "eventName": "PRESSED",
+                      "handlerType": "action",
+                      "action": "Fn_ConectarWiFi"
+                    }
+                  ],
                   "identifier": "Bt_ConectarWiFi",
                   "leftUnit": "px",
                   "topUnit": "px",
@@ -259,7 +288,14 @@
                   },
                   "hiddenInEditor": false,
                   "timeline": [],
-                  "eventHandlers": [],
+                  "eventHandlers": [
+                    {
+                      "objID": "f55c521e-8081-4160-b742-31ecc80e7c28",
+                      "eventName": "PRESSED",
+                      "handlerType": "action",
+                      "action": "Fn_DesConectarWiFi"
+                    }
+                  ],
                   "identifier": "Bt_DesConectarWiFi",
                   "leftUnit": "px",
                   "topUnit": "px",

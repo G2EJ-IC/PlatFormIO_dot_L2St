@@ -2,10 +2,12 @@
 #include <lvgl.h>
 #include "LovyanGFX_Class_ILI9488.h"
 #include "display_service.h"
+#include "tp_service.h"
 #include "esp_freertos_hooks.h"
 #include "ui.h"
 
-static LGFX tft;
+static LGFX tft;      // load tft service
+extern tp_service tp; // load tp service
 
 display_service::display_service() {}
 display_service::~display_service() {}
@@ -20,11 +22,19 @@ static const uint16_t screenHeight = 320;
 static const uint16_t N = 32u; // N = {10, 12, 16, 20, 24, 25, 32}
 
 static lv_disp_draw_buf_t draw_buf;
-static lv_color_t buf[screenWidth * screenHeight / N];
+
+#if (BUF_NUM == 1)
+static lv_color_t buf1[screenWidth * screenHeight / N];
+#elif (BUF_NUM == 2)
+static lv_color_t buf2[screenWidth * screenHeight / N];
+#endif
 
 /* =============================icache functions========================= */
 void ICACHE_FLASH_ATTR display_service::lv_setup()
 {
+    lv_init();
+    tft.begin();                /* TFT init */
+    tft.setRotation(ROTATION);  /* Landscape orientation, flipped */
     String LVGL_Arduino = "Hello Arduino! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println(LVGL_Arduino);
@@ -32,14 +42,12 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 
 #if LV_USE_LOG != 0
     /* Serial debugging */
-    void my_print(const char *buf)
+    void my_print(const char *buf1)
     {
-        Serial.printf(buf);
+        Serial.printf(buf1);
         Serial.flush();
     }
-#endif
-
-    lv_init();
+#endif    
 
 #if LV_USE_LOG != 0
     lv_log_register_print_cb(my_print); /* register print function for debugging */
@@ -48,8 +56,9 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 
 void ICACHE_FLASH_ATTR display_service::touch_setup()
 {
-    tft.begin();        /* TFT init */
-    tft.setRotation(3); /* Landscape orientation, flipped */
+    tp.setup();         /* TFT setup*/
+    // tft.begin();        /* TFT init */
+    // tft.setRotation(ROTATION); /* Landscape orientation, flipped */
 
     //************************************************************************************************
     // tft.setBrightness(255);
@@ -59,7 +68,14 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
     lv_init();
     //************************************************************************************************
 
-    lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * screenHeight / N);
+#if (BUF_NUM == 1)
+    // lv_disp_buf_init(&disp_buf, buf1, NULL, DISP_BUF_SIZE);
+    lv_disp_draw_buf_init(&draw_buf, buf1, NULL, screenWidth * screenHeight / N);
+#elif (BUF_NUM == 2)
+    lv_disp_buf_init(&draw_buf, buf1, buf2, screenWidth * screenHeight / N);
+#endif
+
+    //lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * screenHeight / N);
 
     /*Initialize the display*/
     static lv_disp_drv_t disp_drv;
@@ -96,7 +112,7 @@ void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area
     uint32_t h = (area->y2 - area->y1 + 1);
     tft.startWrite();
     tft.setAddrWindow(area->x1, area->y1, w, h);
-    tft.pushColors((uint16_t *)&color_p->full, w * h, true);
+    tft.pushPixels((uint16_t *)&color_p->full, w * h, true);
     tft.endWrite();
     lv_disp_flush_ready(disp);
 }

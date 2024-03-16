@@ -5,7 +5,8 @@
 #include "actions.h"
 
 ActionExecFunc actions[] = {
-    0
+    action_fn_conectar_wi_fi,
+    action_fn_des_conectar_wi_fi,
 };
 
 
