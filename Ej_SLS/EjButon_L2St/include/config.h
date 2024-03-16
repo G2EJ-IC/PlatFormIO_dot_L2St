@@ -18,7 +18,7 @@
 #define _DEBUG_           //debug switch
 #define DEV_TYPE "ESP32DEV" //esp32dev
 #define LVGL_TICK_PERIOD 10 //lvgl tick period
-#define ROTATION 0          //set ui rotation
+#define ROTATION 3          //set ui rotation
 #define ICACHE_FLASH_ATTR
 
 #define TOUCHPAD //whether the UI support touch pad

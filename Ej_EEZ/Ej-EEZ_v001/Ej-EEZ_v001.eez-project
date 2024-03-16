@@ -131,6 +131,14 @@
       "localVariables": [],
       "name": "Fn_DesConectarWiFi",
       "implementationType": "native"
+    },
+    {
+      "objID": "a4efbad9-1cee-4dd7-e69c-b31ab0e9c771",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "Fn_Presionar_BtOk",
+      "implementationType": "native"
     }
   ],
   "userPages": [
@@ -206,7 +214,7 @@
                   "eventHandlers": [
                     {
                       "objID": "30b5613d-9e28-465e-c8dd-6891e68f0185",
-                      "eventName": "PRESSED",
+                      "eventName": "CLICKED",
                       "handlerType": "action",
                       "action": "Fn_ConectarWiFi"
                     }
@@ -248,7 +256,14 @@
                       "disabledStateType": "literal",
                       "states": "",
                       "localStyles": {
-                        "objID": "c925cb96-513f-4dcb-974e-aa277256e257"
+                        "objID": "c925cb96-513f-4dcb-974e-aa277256e257",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
                       },
                       "text": "Conectar WiFi",
                       "textType": "literal",
@@ -291,7 +306,7 @@
                   "eventHandlers": [
                     {
                       "objID": "f55c521e-8081-4160-b742-31ecc80e7c28",
-                      "eventName": "PRESSED",
+                      "eventName": "CLICKED",
                       "handlerType": "action",
                       "action": "Fn_DesConectarWiFi"
                     }
@@ -333,7 +348,14 @@
                       "disabledStateType": "literal",
                       "states": "",
                       "localStyles": {
-                        "objID": "a18a393f-0240-4c79-e4ed-25bd692e2f25"
+                        "objID": "a18a393f-0240-4c79-e4ed-25bd692e2f25",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
                       },
                       "text": "Desconectar WiFi",
                       "textType": "literal",
@@ -372,7 +394,7 @@
                   "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
-                  "identifier": "BtConectado",
+                  "identifier": "ui_BtConectado",
                   "leftUnit": "px",
                   "topUnit": "px",
                   "widthUnit": "px",
@@ -529,7 +551,7 @@
                       "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
-                      "identifier": "LabSSID",
+                      "identifier": "ui_LabSSID",
                       "leftUnit": "px",
                       "topUnit": "px",
                       "widthUnit": "px",
@@ -656,7 +678,7 @@
                       "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
-                      "identifier": "LabIP",
+                      "identifier": "ui_LabIP",
                       "leftUnit": "px",
                       "topUnit": "px",
                       "widthUnit": "px",
@@ -783,7 +805,7 @@
                       "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
-                      "identifier": "LabDNS",
+                      "identifier": "ui_LabDNS",
                       "leftUnit": "px",
                       "topUnit": "px",
                       "widthUnit": "px",
@@ -910,7 +932,7 @@
                       "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
-                      "identifier": "LabMAC",
+                      "identifier": "ui_LabMAC",
                       "leftUnit": "px",
                       "topUnit": "px",
                       "widthUnit": "px",
@@ -1002,30 +1024,175 @@
           }
         },
         {
-          "objID": "c4c224c3-9f94-4335-fa16-e39b2fcb6800",
-          "type": "LVGLSpinnerWidget",
-          "left": 157,
-          "top": 116,
-          "width": 130,
-          "height": 130,
+          "objID": "9e7f003d-6c33-4ac0-a5b3-1a3be9a79d62",
+          "type": "LVGLPanelWidget",
+          "left": 60,
+          "top": 119,
+          "width": 75,
+          "height": 53,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "ccb5f931-2fa0-4826-9905-9507a7dbe44b",
+            "objID": "885e77a7-815c-496a-b16a-6f641882553c",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
           },
+          "locked": false,
           "hiddenInEditor": false,
           "timeline": [],
           "eventHandlers": [],
+          "identifier": "ui_PanelConectarWiFi",
           "leftUnit": "px",
           "topUnit": "px",
-          "widthUnit": "px",
-          "heightUnit": "px",
-          "children": [],
-          "flags": "GESTURE_BUBBLE|SNAPPABLE|SCROLL_CHAIN",
+          "widthUnit": "%",
+          "heightUnit": "%",
+          "children": [
+            {
+              "objID": "e9626e62-ce1b-4146-b6b4-f9b81bd32f15",
+              "type": "LVGLLabelWidget",
+              "left": 0,
+              "top": 0,
+              "width": 100,
+              "height": 45,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "21547ae5-af26-4ed3-b256-04048cb07e6d",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "ui_LabelConectarWiFi",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "%",
+              "heightUnit": "%",
+              "children": [],
+              "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
+              "hiddenFlagType": "literal",
+              "clickableFlagType": "literal",
+              "scrollbarMode": "auto",
+              "scrollDirection": "all",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "187793ee-fdd7-4248-e2f3-fb76ddc6cc09",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "text_align": "CENTER"
+                    }
+                  }
+                }
+              },
+              "text": "",
+              "textType": "literal",
+              "longMode": "WRAP",
+              "recolor": false
+            },
+            {
+              "objID": "3fa8c4c6-734d-4990-8293-a23776929c73",
+              "type": "LVGLButtonWidget",
+              "left": 81,
+              "top": 93,
+              "width": 50,
+              "height": 25,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "017c22c0-362c-420e-90b0-9de38ed87e9c",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "locked": false,
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [
+                {
+                  "objID": "c4a3783f-cd3e-4007-8929-d7c3821f3153",
+                  "eventName": "CLICKED",
+                  "handlerType": "action",
+                  "action": "Fn_Presionar_BtOk"
+                }
+              ],
+              "identifier": "Bt_ConectarWiFi_1",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "%",
+              "heightUnit": "%",
+              "children": [
+                {
+                  "objID": "83427fe3-00e0-4df6-b6a6-8d55b65ed30c",
+                  "type": "LVGLLabelWidget",
+                  "left": 0,
+                  "top": -2,
+                  "width": 100,
+                  "height": 140,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "03b60614-9fb7-4c76-955e-8b3fc1616d0c",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "hiddenInEditor": false,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "%",
+                  "heightUnit": "%",
+                  "children": [],
+                  "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
+                  "hiddenFlagType": "literal",
+                  "clickableFlagType": "literal",
+                  "scrollbarMode": "auto",
+                  "scrollDirection": "all",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "e898333f-ac62-4ee5-d451-666c5633e75d",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "text_align": "CENTER"
+                        }
+                      }
+                    }
+                  },
+                  "text": "Aceptar",
+                  "textType": "literal",
+                  "longMode": "WRAP",
+                  "recolor": false
+                }
+              ],
+              "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLL_ELASTIC|SCROLL_ON_FOCUS|SCROLL_MOMENTUM|SCROLL_CHAIN",
+              "hiddenFlagType": "literal",
+              "clickableFlag": true,
+              "clickableFlagType": "literal",
+              "scrollbarMode": "auto",
+              "scrollDirection": "all",
+              "checkedState": false,
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "useStyle": "",
+              "localStyles": {
+                "objID": "2a82280f-40e8-4e88-80f6-89185f3389e3"
+              }
+            }
+          ],
+          "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
           "hiddenFlagType": "literal",
+          "clickableFlag": true,
           "clickableFlagType": "literal",
           "scrollbarMode": "auto",
           "scrollDirection": "all",
@@ -1033,7 +1200,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "05f7e3b2-ae30-4b0f-c9c2-9c21ea79cff3"
+            "objID": "7d017882-86c7-4fdc-d7c4-7003d817f46a",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#C8C8C8"
+                }
+              }
+            }
           }
         }
       ],

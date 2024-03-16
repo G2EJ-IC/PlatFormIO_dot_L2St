@@ -9,19 +9,22 @@ extern "C" {
 
 typedef struct _objects_t {
     lv_obj_t *main;
-    lv_obj_t *bt_conectado;
     lv_obj_t *bt_conectar_wi_fi;
+    lv_obj_t *bt_conectar_wi_fi_1;
     lv_obj_t *bt_des_conectar_wi_fi;
-    lv_obj_t *lab_dns;
-    lv_obj_t *lab_ip;
-    lv_obj_t *lab_mac;
-    lv_obj_t *lab_ssid;
     lv_obj_t *panel_boton01;
     lv_obj_t *panel_dns;
     lv_obj_t *panel_ip;
     lv_obj_t *panel_mac;
     lv_obj_t *panel_red_wi_fi;
     lv_obj_t *panel_text01;
+    lv_obj_t *ui_bt_conectado;
+    lv_obj_t *ui_lab_dns;
+    lv_obj_t *ui_lab_ip;
+    lv_obj_t *ui_lab_mac;
+    lv_obj_t *ui_lab_ssid;
+    lv_obj_t *ui_label_conectar_wi_fi;
+    lv_obj_t *ui_panel_conectar_wi_fi;
     lv_obj_t *wi_fi_cautivo;
 } objects_t;
 

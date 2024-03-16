@@ -9,6 +9,7 @@
 #include "display_service.h"
 #include "io_service.h"
 #include "tp_service.h"
+#include "screens.h"
 
 TaskHandle_t Task1 = NULL;
 TaskHandle_t Task2 = NULL;
@@ -194,22 +195,19 @@ void loop3(void *parameter)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void StatusWiFi_AIoT(void)
 {
-  // if (WiFi.status() == WL_CONNECTED) {
-  // lv_label_set_text(LabSSID, WiFi.SSID().c_str());
-  // lv_label_set_text(LabIP, WiFi.localIP().toString().c_str());
-  // lv_label_set_text(LabDNS, WiFi.dnsIP().toString().c_str());
-  // lv_label_set_text(LabMAC, WiFi.macAddress().c_str());
-  // lv_obj_set_style_bg_color(BtConectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  // lv_obj_set_style_bg_color(BtConectado1, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  // }
-  // else {
-  //   lv_label_set_text(LabSSID, "xx.xx.xx.xx");
-  //   lv_label_set_text(LabIP, "xx.xx.xx.xx");
-  //   lv_label_set_text(LabDNS, "xx.xx.xx.xx");
-  //   lv_label_set_text(LabMAC, "xx:xx:xx:xx:xx:xx");
-  //   lv_obj_set_style_bg_color(BtConectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  // lv_obj_set_style_bg_color(BtConectado1, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  //}
+  if (WiFi.status() == WL_CONNECTED) {
+	  lv_label_set_text(objects.ui_lab_ssid, WiFi.SSID().c_str());
+		lv_label_set_text(objects.ui_lab_ip, WiFi.localIP().toString().c_str());
+		lv_label_set_text(objects.ui_lab_dns, WiFi.dnsIP().toString().c_str());
+		lv_label_set_text(objects.ui_lab_mac, WiFi.macAddress().c_str());
+    lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
+  } else {
+	  lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
+    lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+  }
 }
 
 void TestHwm(const char *taskName)

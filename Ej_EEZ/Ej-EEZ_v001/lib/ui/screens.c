@@ -12,7 +12,7 @@ lv_obj_t *tick_value_change_obj;
 static void event_handler_cb_main_bt_conectar_wi_fi(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_CLICKED) {
         action_fn_conectar_wi_fi(e);
     }
 }
@@ -20,8 +20,16 @@ static void event_handler_cb_main_bt_conectar_wi_fi(lv_event_t *e) {
 static void event_handler_cb_main_bt_des_conectar_wi_fi(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_CLICKED) {
         action_fn_des_conectar_wi_fi(e);
+    }
+}
+
+static void event_handler_cb_main_bt_conectar_wi_fi_1(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    void *flowState = e->user_data;
+    if (event == LV_EVENT_CLICKED) {
+        action_fn_presionar_bt_ok(e);
     }
 }
 
@@ -73,6 +81,7 @@ void create_screen_main() {
                                     lv_obj_set_pos(obj, 19, -3);
                                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "Conectar WiFi");
+                                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                                 }
                             }
                         }
@@ -92,13 +101,14 @@ void create_screen_main() {
                                     lv_obj_set_pos(obj, 6, -3);
                                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "Desconectar WiFi");
+                                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                                 }
                             }
                         }
                         {
-                            // BtConectado
+                            // ui_BtConectado
                             lv_obj_t *obj = lv_btn_create(parent_obj);
-                            objects.bt_conectado = obj;
+                            objects.ui_bt_conectado = obj;
                             lv_obj_set_pos(obj, 201, -5);
                             lv_obj_set_size(obj, 30, 30);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
@@ -142,9 +152,9 @@ void create_screen_main() {
                                     lv_label_set_text(obj, "Red WiFi (SSID).:");
                                 }
                                 {
-                                    // LabSSID
+                                    // ui_LabSSID
                                     lv_obj_t *obj = lv_label_create(parent_obj);
-                                    objects.lab_ssid = obj;
+                                    objects.ui_lab_ssid = obj;
                                     lv_obj_set_pos(obj, 154, 0);
                                     lv_obj_set_size(obj, 258, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "xx.xx.xx.xx");
@@ -171,9 +181,9 @@ void create_screen_main() {
                                     lv_label_set_text(obj, "Direccion IP.:");
                                 }
                                 {
-                                    // LabIP
+                                    // ui_LabIP
                                     lv_obj_t *obj = lv_label_create(parent_obj);
-                                    objects.lab_ip = obj;
+                                    objects.ui_lab_ip = obj;
                                     lv_obj_set_pos(obj, 154, 0);
                                     lv_obj_set_size(obj, 258, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "xx.xx.xx.xx");
@@ -200,9 +210,9 @@ void create_screen_main() {
                                     lv_label_set_text(obj, "Direccion DNS.:");
                                 }
                                 {
-                                    // LabDNS
+                                    // ui_LabDNS
                                     lv_obj_t *obj = lv_label_create(parent_obj);
-                                    objects.lab_dns = obj;
+                                    objects.ui_lab_dns = obj;
                                     lv_obj_set_pos(obj, 154, 0);
                                     lv_obj_set_size(obj, 258, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "xx.xx.xx.xx");
@@ -229,9 +239,9 @@ void create_screen_main() {
                                     lv_label_set_text(obj, "Direccion MAC.:");
                                 }
                                 {
-                                    // LabMAC
+                                    // ui_LabMAC
                                     lv_obj_t *obj = lv_label_create(parent_obj);
-                                    objects.lab_mac = obj;
+                                    objects.ui_lab_mac = obj;
                                     lv_obj_set_pos(obj, 154, 0);
                                     lv_obj_set_size(obj, 258, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "xx:xx:xx:xx:xx:xx");
@@ -243,9 +253,45 @@ void create_screen_main() {
             }
         }
         {
-            lv_obj_t *obj = lv_spinner_create(parent_obj, 1000, 60);
-            lv_obj_set_pos(obj, 157, 116);
-            lv_obj_set_size(obj, 130, 130);
+            // ui_PanelConectarWiFi
+            lv_obj_t *obj = lv_obj_create(parent_obj);
+            objects.ui_panel_conectar_wi_fi = obj;
+            lv_obj_set_pos(obj, 60, 119);
+            lv_obj_set_size(obj, LV_PCT(75), LV_PCT(53));
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    // ui_LabelConectarWiFi
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.ui_label_conectar_wi_fi = obj;
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_PCT(100), LV_PCT(45));
+                    lv_label_set_text(obj, "");
+                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // Bt_ConectarWiFi_1
+                    lv_obj_t *obj = lv_btn_create(parent_obj);
+                    objects.bt_conectar_wi_fi_1 = obj;
+                    lv_obj_set_pos(obj, 81, 93);
+                    lv_obj_set_size(obj, LV_PCT(50), LV_PCT(25));
+                    lv_obj_add_event_cb(obj, event_handler_cb_main_bt_conectar_wi_fi_1, LV_EVENT_ALL, flowState);
+                    lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+                    {
+                        lv_obj_t *parent_obj = obj;
+                        {
+                            lv_obj_t *obj = lv_label_create(parent_obj);
+                            lv_obj_set_pos(obj, 0, -2);
+                            lv_obj_set_size(obj, LV_PCT(100), LV_PCT(140));
+                            lv_label_set_text(obj, "Aceptar");
+                            lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                        }
+                    }
+                }
+            }
         }
     }
 }
