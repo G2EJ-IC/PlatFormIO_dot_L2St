@@ -17,7 +17,7 @@ display_service::~display_service() {}
 /*Change to your screen resolution*/
 static const uint16_t screenWidth = 480;
 static const uint16_t screenHeight = 320;
-static const uint16_t N = 20u; // N = {10, 12, 16, 20, 24, 25, 32}
+static const uint16_t N = 32u; // N = {10, 12, 16, 20, 24, 25, 32}
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * screenHeight / N];

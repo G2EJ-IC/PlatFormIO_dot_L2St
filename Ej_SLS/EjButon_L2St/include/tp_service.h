@@ -11,20 +11,20 @@
 	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
 */
 //////////////////////////////////////////////////////////////////////////
-#ifndef __IO_SERVICE_H__
-#define __IO_SERVICE_H__
+#ifndef __TP_SERVICE_H__
+#define __TP_SERVICE_H__
 
 #define ICACHE_FLASH_ATTR
 
-class io_service
+class tp_service
 {
 private:
 public:
-    io_service();
-    ~io_service();
+    tp_service();
+    ~tp_service();
 
     void ICACHE_FLASH_ATTR setup();
     void ICACHE_FLASH_ATTR loop();
 };
 
-#endif // __IO_SERVICE_H__
+#endif // __TP_SERVICE_H__

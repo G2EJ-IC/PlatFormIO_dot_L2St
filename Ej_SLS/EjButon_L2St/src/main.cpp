@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include "soc/timer_group_struct.h"  //for wdt
+#include "soc/timer_group_reg.h"     //for wdt
 #include <lvgl.h>
 #include "LovyanGFX_Class_ILI9488.h"
 #include <ui.h>
@@ -5,6 +8,7 @@
 #include <WiFiManager.h>
 #include <ConectarWiFi_AIoT.h>
 #include "display_service.h"
+#include "tp_service.h"
 #include "io_service.h"
 
 #define PinLED  2   // LED_BUILTIN
@@ -24,8 +28,20 @@ TaskHandle_t Task2 = NULL;
 TaskHandle_t Task3 = NULL;
 SemaphoreHandle_t cuentaMutex;
 
-io_service io;           // load IO control service
-display_service display; // load display service
+io_service io;            // load IO control service
+display_service display;  // load display service
+tp_service tp;            // load touch pack service
+
+inline void feedTheDog(){
+  // feed dog 0
+  TIMERG0.wdt_wprotect=TIMG_WDT_WKEY_VALUE; // write enable
+  TIMERG0.wdt_feed=1;                       // feed dog
+  TIMERG0.wdt_wprotect=0;                   // write protect
+  // feed dog 1
+  TIMERG1.wdt_wprotect=TIMG_WDT_WKEY_VALUE; // write enable
+  TIMERG1.wdt_feed=1;                       // feed dog
+  TIMERG1.wdt_wprotect=0;                   // write protect
+}
 
 //************************************************************************************************
 inline void loop_Task1(void);
@@ -102,6 +118,7 @@ void setup() {
 //************************************************************************************************
 void loop()
 {
+  feedTheDog();
   delay(delayLength);
   digitalWrite(PinLED, !digitalRead(PinLED));
 
@@ -126,6 +143,7 @@ inline void loop_Task3(void)
 void loop1(void *parameter)
 {
   io.setup();
+  tp.setup();
   for (;;)
   {
     loop_Task1();

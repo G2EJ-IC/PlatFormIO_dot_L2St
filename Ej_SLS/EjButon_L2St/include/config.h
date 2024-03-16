@@ -1,6 +1,3 @@
-#ifndef __LOVYANGFX_PINS_ILI9488_H__
-#define __LOVYANGFX_PINS_ILI9488_H__
-
 //////////////////////////////////////////////////////////////////////////
 /*
 	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
@@ -14,6 +11,20 @@
 	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
 */
 //////////////////////////////////////////////////////////////////////////
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
+
+#define VERSION "0.0.0.4" //version number
+#define _DEBUG_           //debug switch
+#define DEV_TYPE "ESP32DEV" //esp32dev
+#define LVGL_TICK_PERIOD 10 //lvgl tick period
+#define ROTATION 0          //set ui rotation
+#define ICACHE_FLASH_ATTR
+
+#define TOUCHPAD //whether the UI support touch pad
+#define KEYPAD
+
+
 #define HMI_TFT_ILI9488_480x320_4in
 
 #if defined(HMI_TFT_ILI9488_480x320_4in)
@@ -54,6 +65,6 @@
 #define BUF_SIZE 80
 #define DISP_BUF_SIZE (LV_HOR_RES_MAX * BUF_SIZE)
 #define BUF_NUM 1
-//--------------------------end display select
+//------------------------end display select
 
-#endif // __LOVYANGFX_PINS_ILI9488_H__
+#endif // __CONFIG_H__

@@ -21,7 +21,8 @@
 // https://github.com/lovyan03/LovyanGFX
 #define LGFX_USE_V1
 #include <LovyanGFX.hpp>
-#include "LovyanGFX_Pins_ILI9488.h"
+#include "config.h"
+// #include "LovyanGFX_Pins_ILI9488.h"
 
 static const uint32_t TFT_WIDTH = 320;
 static const uint32_t TFT_HEIGHT = 480;

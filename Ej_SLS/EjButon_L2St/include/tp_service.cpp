@@ -1,3 +1,4 @@
+
 //////////////////////////////////////////////////////////////////////////
 /*
 	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
@@ -11,20 +12,21 @@
 	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
 */
 //////////////////////////////////////////////////////////////////////////
-#ifndef __IO_SERVICE_H__
-#define __IO_SERVICE_H__
+#include <Arduino.h>
+#include "config.h"
+#include "tp_service.h"
 
-#define ICACHE_FLASH_ATTR
+tp_service::tp_service() {}
+tp_service::~tp_service() {}
 
-class io_service
+/* =============================icache functions========================= */
+/* =============================icache functions========================= */
+void ICACHE_FLASH_ATTR tp_service::setup()
 {
-private:
-public:
-    io_service();
-    ~io_service();
 
-    void ICACHE_FLASH_ATTR setup();
-    void ICACHE_FLASH_ATTR loop();
-};
+} // end io setup
 
-#endif // __IO_SERVICE_H__
+void ICACHE_FLASH_ATTR tp_service::loop()
+{
+
+} // end io loop

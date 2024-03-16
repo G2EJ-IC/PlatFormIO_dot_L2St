@@ -1,10 +1,27 @@
+//////////////////////////////////////////////////////////////////////////
+/*
+	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
+	Developing Embedded GUI with SquareLine Studio [2/2]
+	Configuración de lv_conf.h
+	Video Tutorial: https://youtu.be/b_4m1A3A2yw
+	Created by That Project
+*/
+//////////////////////////////////////////////////////////////////////////
+/*
+	Modificado: Ernesto José Guerrero González, Civil Engineering ud FJdC.
+*/
+//////////////////////////////////////////////////////////////////////////
 #include <Arduino.h>
+#include "config.h"
 #include <lvgl.h>
 #include "ui.h"
 #include "LovyanGFX_Class_ILI9488.h"
 #include "display_service.h"
+#include "tp_service.h"
 
-static LGFX tft;
+// static LGFX tft;        //load tft service
+static LGFX tft;        //load tft service
+extern tp_service tp;   //load tp service
 
 display_service::display_service() {}
 display_service::~display_service() {}
@@ -98,7 +115,7 @@ void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area
     uint32_t h = (area->y2 - area->y1 + 1);
     tft.startWrite();
     tft.setAddrWindow(area->x1, area->y1, w, h);
-    tft.pushColors((uint16_t *)&color_p->full, w * h, true);
+    tft.pushColors((uint16_t *)&color_p->full, (int32_t)(w * h), (bool)true);
     tft.endWrite();
     lv_disp_flush_ready(disp);
 }
