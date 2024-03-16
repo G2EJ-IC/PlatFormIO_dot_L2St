@@ -52,10 +52,9 @@ void loop() {
   Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
   Serial.println("\t\t\t Loop uno (1) - 🤯🤯🤯");
   cuenta++;
+  Serial.println("================================================================================");
   Serial.println("desde loop -> " + String(cuenta));
-  Serial.println("================================================================================");
   TestHwm("loop");  
-  Serial.println("================================================================================");
 }
 
 void loop2(void *parameter){
@@ -64,10 +63,9 @@ void loop2(void *parameter){
     Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
     Serial.println("\t\t\t Loop dos (2) - 🤯🤯🤯");
     cuenta++;
+    Serial.println("================================================================================");
     Serial.println("desde loop 2 -> " + String(cuenta));
-    Serial.println("================================================================================");
     TestHwm("loop2");
-    Serial.println("================================================================================");
   }
 }
 
@@ -77,15 +75,16 @@ void loop3(void *parameter){
     Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
     Serial.println("\t\t\t Loop tres (3) - 🤯🤯🤯");    
     cuenta++;
+    Serial.println("================================================================================");
     Serial.println("desde loop 3 -> " + String(cuenta));
-    Serial.println("================================================================================");
     TestHwm("loop3");
-    Serial.println("================================================================================");
   }
 }
 
 void TestHwm(const char *taskName) {
   int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);
-  Serial.println(" ");
-  Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n",taskName, stack_hwm_temp);
+  Serial.println("\n================================================================================\n");
+  Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n", taskName, stack_hwm_temp);
+  Serial.println("En núcleo -> " + String(xPortGetCoreID()));
+  Serial.println("\n================================================================================\n");
 }

@@ -1,2 +1,2 @@
-# PlatFormIO-SquareLine Studio
-PlatFormIO-SquareLine Studio
+# PlatFormIO-EEZ Studio.
+PlatFormIO-EEZ Studio.
