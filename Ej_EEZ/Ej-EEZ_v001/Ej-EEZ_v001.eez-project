@@ -160,6 +160,7 @@
             "conditionalStyles": [],
             "childStyles": []
           },
+          "locked": false,
           "hiddenInEditor": false,
           "timeline": [],
           "eventHandlers": [],
@@ -1090,7 +1091,7 @@
                   }
                 }
               },
-              "text": "",
+              "text": "_",
               "textType": "literal",
               "longMode": "WRAP",
               "recolor": false
@@ -1196,15 +1197,17 @@
           "clickableFlagType": "literal",
           "scrollbarMode": "auto",
           "scrollDirection": "all",
+          "checkedState": false,
           "checkedStateType": "literal",
           "disabledStateType": "literal",
           "states": "",
+          "useStyle": "",
           "localStyles": {
             "objID": "7d017882-86c7-4fdc-d7c4-7003d817f46a",
             "definition": {
               "MAIN": {
                 "DEFAULT": {
-                  "bg_color": "#C8C8C8"
+                  "bg_color": "#ffffff"
                 }
               }
             }

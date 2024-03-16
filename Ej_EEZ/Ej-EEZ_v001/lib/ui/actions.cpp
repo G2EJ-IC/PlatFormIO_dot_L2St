@@ -16,7 +16,7 @@ extern void action_fn_conectar_wi_fi(lv_event_t * e)
 		lv_label_set_text(objects.ui_lab_dns, WiFi.dnsIP().toString().c_str());
 		lv_label_set_text(objects.ui_lab_mac, WiFi.macAddress().c_str());
 		lv_label_set_text(objects.ui_label_conectar_wi_fi, "Conectese a la Red Cautiva WiFi \n.:: AIoT_NodeESP32 ::.");
-		lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);		
+		lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);	
 		lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	} else {
 	    lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
