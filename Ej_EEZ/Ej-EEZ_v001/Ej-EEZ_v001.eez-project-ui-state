@@ -1,7 +1,6 @@
 {
   "navigation": {
     "selectedUserPageObject": "[Ej-EEZ_v001.eez-project]:/userPages/0",
-    "selectedActionObject": "[Ej-EEZ_v001.eez-project]:/actions/-1",
     "subnavigationSelectedItems": {}
   },
   "layoutModel": {
@@ -180,6 +179,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 60,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
