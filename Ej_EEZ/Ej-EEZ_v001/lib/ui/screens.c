@@ -258,12 +258,13 @@ void create_screen_main() {
             objects.ui_panel_conectar_wi_fi = obj;
             lv_obj_set_pos(obj, 60, 119);
             lv_obj_set_size(obj, LV_PCT(75), LV_PCT(53));
-            // lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+            lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
-            // lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);
-            // IC.MSc(C).G2EJ
-            lv_obj_add_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);           /// Flags
-            lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_SCROLLABLE);     /// Flags
+            lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_SCROLLBAR | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_width(obj, 2, LV_PART_SCROLLBAR | LV_STATE_DEFAULT);
             {
                 lv_obj_t *parent_obj = obj;
                 {
@@ -272,7 +273,7 @@ void create_screen_main() {
                     objects.ui_label_conectar_wi_fi = obj;
                     lv_obj_set_pos(obj, 0, 0);
                     lv_obj_set_size(obj, LV_PCT(100), LV_PCT(45));
-                    lv_label_set_text(obj, "");
+                    lv_label_set_text(obj, "_");
                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                 }
                 {

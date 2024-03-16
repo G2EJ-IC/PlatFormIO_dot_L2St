@@ -98,11 +98,6 @@
           "objID": "1729880e-ad16-4d50-e798-c9ec82ddb438",
           "fileName": "flow_def.c",
           "template": "#include <eez/core/vars.h>\n\n#include \"flow_def.h\"\n#include \"vars.h\"\n\n//${eez-studio GUI_ASSETS_DEF_COMPRESSED}\n\n//${eez-studio LVGL_NATIVE_VARS_TABLE_DEF}\n"
-        },
-        {
-          "objID": "1d2f1e70-0c62-4087-f7a6-c0384408aaae",
-          "fileName": "actions.cpp",
-          "template": "#include \"actions.h\"\n\nextern void action_fn_conectar_wi_fi(lv_event_t * e)\n{\n\n}\n\nextern void action_fn_des_conectar_wi_fi(lv_event_t * e)\n{\n\n}"
         }
       ],
       "destinationFolder": "lib\\ui",
@@ -1040,7 +1035,7 @@
             "childStyles": []
           },
           "locked": false,
-          "hiddenInEditor": true,
+          "hiddenInEditor": false,
           "timeline": [],
           "eventHandlers": [],
           "identifier": "ui_PanelConectarWiFi",
@@ -1064,7 +1059,7 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
-              "hiddenInEditor": true,
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "ui_LabelConectarWiFi",
@@ -1112,7 +1107,7 @@
                 "childStyles": []
               },
               "locked": false,
-              "hiddenInEditor": true,
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [
                 {
@@ -1143,7 +1138,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
-                  "hiddenInEditor": true,
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "leftUnit": "px",
@@ -1192,6 +1187,7 @@
             }
           ],
           "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
+          "hiddenFlag": true,
           "hiddenFlagType": "literal",
           "clickableFlag": true,
           "clickableFlagType": "literal",
@@ -1207,7 +1203,15 @@
             "definition": {
               "MAIN": {
                 "DEFAULT": {
-                  "bg_color": "#ffffff"
+                  "bg_color": "#c8c8c8",
+                  "border_color": "#000000",
+                  "border_width": 2
+                }
+              },
+              "SCROLLBAR": {
+                "DEFAULT": {
+                  "border_color": "#000000",
+                  "border_width": 2
                 }
               }
             }
