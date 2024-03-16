@@ -258,7 +258,7 @@ void create_screen_main() {
             objects.ui_panel_conectar_wi_fi = obj;
             lv_obj_set_pos(obj, 60, 119);
             lv_obj_set_size(obj, LV_PCT(75), LV_PCT(53));
-            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_HIDDEN);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
             {
                 lv_obj_t *parent_obj = obj;

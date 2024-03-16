@@ -66,7 +66,6 @@ void my_print(const char *buf)
 }
 #endif
 
-
 void setup()
 {
   Serial.begin(115200);
