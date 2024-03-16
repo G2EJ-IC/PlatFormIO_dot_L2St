@@ -107,7 +107,7 @@
             {
               "type": "row",
               "id": "#af7605bc-5589-4317-a5ff-13ddd6b02842",
-              "weight": 20,
+              "weight": 23.34322453016815,
               "children": [
                 {
                   "type": "tabset",
@@ -156,7 +156,8 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -179,10 +180,22 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 60,
+              "weight": 56.65677546983185,
+              "selected": 2,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#ca6f784e-05d7-4c5c-acf0-ef7a9e311b95",
+                  "name": "[NATIVE] Fn_DesConectarWiFi",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_v001.eez-project]:/actions/1",
+                    "permanent": false
+                  },
+                  "icon": "material:code"
+                },
                 {
                   "type": "tab",
                   "id": "#3d62b895-0635-4272-bd52-6fdd4f9ff8be",
@@ -206,8 +219,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -936,10 +948,16 @@
     "[Ej-EEZ_v001.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "0": {}
-        },
-        "1": {
-          "$selected": true
+          "0": {
+            "0": {},
+            "1": {}
+          },
+          "1": {
+            "0": {},
+            "1": {},
+            "2": {},
+            "3": {}
+          }
         }
       },
       "transform": {
@@ -975,6 +993,16 @@
         },
         "scale": 1
       }
+    },
+    "[Ej-EEZ_v001.eez-project]:/actions/2[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
     }
   },
   "activeOutputSection": 0,
@@ -990,6 +1018,8 @@
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
-  "lvglExpandedPropertiesGroup": [],
+  "lvglExpandedPropertiesGroup": [
+    "TEXT"
+  ],
   "showInactiveFlowsInDebugger": true
 }

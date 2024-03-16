@@ -1039,7 +1039,7 @@
             "childStyles": []
           },
           "locked": false,
-          "hiddenInEditor": false,
+          "hiddenInEditor": true,
           "timeline": [],
           "eventHandlers": [],
           "identifier": "ui_PanelConectarWiFi",
@@ -1063,7 +1063,7 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
-              "hiddenInEditor": false,
+              "hiddenInEditor": true,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "ui_LabelConectarWiFi",
@@ -1111,7 +1111,7 @@
                 "childStyles": []
               },
               "locked": false,
-              "hiddenInEditor": false,
+              "hiddenInEditor": true,
               "timeline": [],
               "eventHandlers": [
                 {
@@ -1142,7 +1142,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
-                  "hiddenInEditor": false,
+                  "hiddenInEditor": true,
                   "timeline": [],
                   "eventHandlers": [],
                   "leftUnit": "px",
