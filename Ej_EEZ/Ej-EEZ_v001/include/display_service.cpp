@@ -57,8 +57,6 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 void ICACHE_FLASH_ATTR display_service::touch_setup()
 {
     tp.setup();         /* TFT setup*/
-    // tft.begin();        /* TFT init */
-    // tft.setRotation(ROTATION); /* Landscape orientation, flipped */
 
     //************************************************************************************************
     // tft.setBrightness(255);
@@ -74,8 +72,6 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 #elif (BUF_NUM == 2)
     lv_disp_buf_init(&draw_buf, buf1, buf2, screenWidth * screenHeight / N);
 #endif
-
-    //lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * screenHeight / N);
 
     /*Initialize the display*/
     static lv_disp_drv_t disp_drv;
