@@ -2,7 +2,9 @@
   "navigation": {
     "selectedUserPageObject": "[Ej-EEZ_v001.eez-project]:/userPages/0",
     "selectedActionObject": "[Ej-EEZ_v001.eez-project]:/actions/1",
-    "subnavigationSelectedItems": {}
+    "subnavigationSelectedItems": {
+      "variables-tab/sub-navigation/selected-item": "Actions"
+    }
   },
   "layoutModel": {
     "rootEditor": {
@@ -61,6 +63,8 @@
           },
           {
             "type": "border",
+            "selected": 0,
+            "size": 0,
             "location": "bottom",
             "children": [
               {
@@ -113,7 +117,6 @@
                   "type": "tabset",
                   "id": "#241073b5-1a42-4ace-a122-10bd4e97bb6a",
                   "weight": 1,
-                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -156,8 +159,7 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -180,11 +182,23 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 56.65677546983185,
+              "weight": 52.45973075242104,
               "selected": 2,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#0d51f4de-c378-4abc-a270-bf3503046eda",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_v001.eez-project]:/settings",
+                    "subObjectPath": "[Ej-EEZ_v001.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
                 {
                   "type": "tab",
                   "id": "#ca6f784e-05d7-4c5c-acf0-ef7a9e311b95",
@@ -198,18 +212,6 @@
                 },
                 {
                   "type": "tab",
-                  "id": "#3d62b895-0635-4272-bd52-6fdd4f9ff8be",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[Ej-EEZ_v001.eez-project]:/settings",
-                    "subObjectPath": "[Ej-EEZ_v001.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
                   "id": "#3d8c1c65-b16d-46a5-9743-a7c31281e428",
                   "name": "Main",
                   "component": "editor",
@@ -219,12 +221,13 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
               "id": "#66500753-85cc-4409-9533-036f273cb220",
-              "weight": 25,
+              "weight": 29.197044717410805,
               "children": [
                 {
                   "type": "tabset",
@@ -958,7 +961,8 @@
             "2": {},
             "3": {}
           }
-        }
+        },
+        "1": {}
       },
       "transform": {
         "translate": {
@@ -1019,7 +1023,7 @@
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
-    "TEXT"
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true
 }
