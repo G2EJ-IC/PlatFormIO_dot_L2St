@@ -273,7 +273,7 @@ void create_screen_main() {
                     objects.ui_label_conectar_wi_fi = obj;
                     lv_obj_set_pos(obj, 0, 0);
                     lv_obj_set_size(obj, LV_PCT(100), LV_PCT(45));
-                    lv_label_set_text(obj, "EEZ Studio.");
+                    lv_label_set_text(obj, "Conecte el celular a la red \n(.:: AIoT_NodeESP32 ::.)\ny configure WiFi....");
                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                 }
                 {

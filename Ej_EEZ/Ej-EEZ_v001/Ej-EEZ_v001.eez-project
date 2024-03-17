@@ -1000,6 +1000,7 @@
             }
           ],
           "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
+          "hiddenFlag": false,
           "hiddenFlagType": "literal",
           "clickableFlag": true,
           "clickableFlagType": "literal",
@@ -1013,7 +1014,7 @@
             "definition": {
               "MAIN": {
                 "DEFAULT": {
-                  "bg_color": "#C8C8C8"
+                  "bg_color": "#c8c8c8"
                 }
               }
             }
@@ -1087,7 +1088,7 @@
                   }
                 }
               },
-              "text": "EEZ Studio.",
+              "text": "Conecte el celular a la red \n(.:: AIoT_NodeESP32 ::.)\ny configure WiFi....",
               "textType": "literal",
               "longMode": "WRAP",
               "recolor": false
