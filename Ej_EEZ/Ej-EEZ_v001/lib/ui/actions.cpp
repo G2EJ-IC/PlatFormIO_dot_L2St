@@ -23,7 +23,7 @@ extern void action_fn_conectar_wi_fi(lv_event_t * e)
 		lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
 		lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
 		lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
-		lv_label_set_text(objects.ui_label_conectar_wi_fi, "Conecte el celular a la red \n(.:: AIoT_NodeESP32 ::.)\n y configure WiFi....");
+		lv_label_set_text(objects.ui_label_conectar_wi_fi, "Conecte el celular a la RED \n(.:: AIoT_NodeESP32 ::.)\n y configure WiFi....");
 		lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);
 		lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	}
@@ -36,7 +36,7 @@ extern void action_fn_des_conectar_wi_fi(lv_event_t * e)
 	lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
 	lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
 	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
-	lv_label_set_text(objects.ui_label_conectar_wi_fi, "DesConectado de la Red WiFi");
+	lv_label_set_text(objects.ui_label_conectar_wi_fi, "DesConectado de la RED WiFi");
 	lv_obj_clear_flag(objects.ui_panel_conectar_wi_fi, LV_OBJ_FLAG_HIDDEN);
 	lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	DisconnectWiFi_AIoT();
