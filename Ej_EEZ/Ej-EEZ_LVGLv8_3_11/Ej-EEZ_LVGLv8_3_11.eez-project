@@ -42,12 +42,12 @@
         {
           "objID": "56e09a74-8fc0-46c2-d0b9-1fd05358002f",
           "fileName": "vars.h",
-          "template": "#ifndef EEZ_LVGL_UI_VARS_H\r\n#define EEZ_LVGL_UI_VARS_H\r\n\r\n#include <stdint.h>\r\n\r\n//${eez-studio LVGL_VARS_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_VARS_H*/"
+          "template": "#ifndef EEZ_LVGL_UI_VARS_H\r\n#define EEZ_LVGL_UI_VARS_H\r\n\r\n#include <stdint.h>\r\n#include <stdbool.h>\r\n\r\n//${eez-studio LVGL_VARS_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_VARS_H*/"
         },
         {
           "objID": "487e4fa2-3d33-47ec-d3cd-8e52dd59fc18",
           "fileName": "images.h",
-          "template": "#ifndef EEZ_LVGL_UI_IMAGES_H\r\n#define EEZ_LVGL_UI_IMAGES_H\r\n\r\n#include <lvgl.h>\r\n\r\n//${eez-studio LVGL_IMAGES_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_IMAGES_H*/"
+          "template": "#ifndef EEZ_LVGL_UI_IMAGES_H\r\n#define EEZ_LVGL_UI_IMAGES_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n//${eez-studio LVGL_IMAGES_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_IMAGES_H*/"
         },
         {
           "objID": "b35442e8-0863-4e9d-9bf2-79f67ce15354",
@@ -57,7 +57,7 @@
         {
           "objID": "7c8dab44-93a9-4021-b95e-83ceb9fababd",
           "fileName": "fonts.h",
-          "template": "#ifndef EEZ_LVGL_UI_FONTS_H\r\n#define EEZ_LVGL_UI_FONTS_H\r\n\r\n#include <lvgl.h>\r\n\r\n//${eez-studio LVGL_FONTS_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_FONTS_H*/"
+          "template": "#ifndef EEZ_LVGL_UI_FONTS_H\r\n#define EEZ_LVGL_UI_FONTS_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n//${eez-studio LVGL_FONTS_DECL}\r\n\r\n#endif /*EEZ_LVGL_UI_FONTS_H*/"
         },
         {
           "objID": "a076bce5-d2a3-4929-9453-cb1c1811b1a2",
@@ -82,7 +82,7 @@
         {
           "objID": "2fbd141b-5fc3-4115-d932-fbf105cec06f",
           "fileName": "actions.h",
-          "template": "#ifndef EEZ_LVGL_UI_EVENTS_H\r\n#define EEZ_LVGL_UI_EVENTS_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n//${eez-studio LVGL_ACTIONS_DECL}\r\n\r\n#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n#endif /*EEZ_LVGL_UI_EVENTS_H*/"
+          "template": "#ifndef EEZ_LVGL_UI_EVENTS_H\r\n#define EEZ_LVGL_UI_EVENTS_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n//${eez-studio LVGL_ACTIONS_DECL}\r\n\r\n#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n#endif /*EEZ_LVGL_UI_EVENTS_H*/"
         },
         {
           "objID": "4e53d15b-e795-44e6-84b4-5630d835c7ba",
