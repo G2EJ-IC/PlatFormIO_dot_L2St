@@ -14,8 +14,6 @@ inline Print &operator <<(Print &obj, T arg) {
 #include "screens.h"
 #include "actions_msgbox.h"
 
-#if LV_USE_MSGBOX && LV_BUILD_EXAMPLES
-
 lv_obj_t *mbox1;
 
 static void event_cb(lv_event_t * e)
@@ -60,5 +58,3 @@ void lv_msgbox_1(const char * title,int * counter)
         lv_obj_center(mbox1);
     }   
 }
-
-#endif
