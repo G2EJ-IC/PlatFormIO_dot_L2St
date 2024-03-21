@@ -36,17 +36,17 @@ extern void action_fn_pagina_3_tres(lv_event_t * e)
 
 extern void action_fn_pagina_1_ok(lv_event_t * e)
 {
-	lv_msgbox_1("- Pag. 1 -", counter);
+	lv_msgbox_1("- Pag. 1 -", &counter);
 }
 
 extern void action_fn_pagina_2_ok(lv_event_t * e)
 {
-	lv_msgbox_1("- Pag. 2 -", counter);
+	lv_msgbox_1("- Pag. 2 -", &counter);
 }
 
 extern void action_fn_pagina_3_ok(lv_event_t * e)
 {
-	lv_msgbox_1("- Pag. 3 -", counter);
+	lv_msgbox_1("- Pag. 3 -", &counter);
 }
 
 extern void action_fn_plus(lv_event_t * e)

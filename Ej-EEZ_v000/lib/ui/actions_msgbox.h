@@ -9,7 +9,7 @@ extern "C" {
 
 #include <lvgl.h>
 
-void lv_msgbox_1(const char *, int);
+void lv_msgbox_1(const char *, int *);
 
 #ifdef __cplusplus
 }

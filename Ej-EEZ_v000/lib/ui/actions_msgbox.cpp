@@ -37,9 +37,9 @@ static void event_cb(lv_event_t * e)
     }
 }
 
-void lv_msgbox_1(const char * title,int counter)
+void lv_msgbox_1(const char * title,int * counter)
 {
-    std::string counter1 = "Elemento.: (" + std::to_string(counter) + ")";
+    std::string counter1 = "Elemento.: (" + std::to_string(*counter) + ")";
 	const char * TXT = counter1.c_str();
 
     static const char * btns[] = {"Aceptar", "Cancelar", NULL};
