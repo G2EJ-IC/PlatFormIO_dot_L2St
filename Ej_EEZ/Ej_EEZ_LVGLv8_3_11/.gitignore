@@ -1,0 +1,12 @@
+.pio
+.vscode
+ui_v(Bk)
+img_v(Bk)
+ico
+ico/*
+ico/*.ico
+ico/*.ini
+desktop.ini
+Desktop.ini
+autosave
+backup
