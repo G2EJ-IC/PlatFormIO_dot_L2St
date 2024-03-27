@@ -10,3 +10,6 @@ desktop.ini
 Desktop.ini
 autosave
 backup
+token
+token.cpp
+token.h
