@@ -123,6 +123,7 @@ void setup()
 
 void loop()
 {
+  ui_tick();
   feedTheDog();
   if (millis() > asyncDelay0)
   {
