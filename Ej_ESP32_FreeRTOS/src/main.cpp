@@ -4,10 +4,13 @@ TaskHandle_t Task2, Task3;
 int cuenta = 0;
 SemaphoreHandle_t cuentaMutex;
 
-void loop2(void *);
-void loop3(void *);
+// define two tasks for Blink & AnalogRead
+void TaskLoop2(void *);
+void TaskLoop3(void *);
+
 void TestHwm(const char *);
 
+// the setup function runs once when you press reset or power the board
 void setup() {
 
   Serial.begin(115200);
@@ -15,8 +18,8 @@ void setup() {
   BaseType_t taskCreationResult;
 
   taskCreationResult = xTaskCreatePinnedToCore(
-                        loop2, 
-                        "Task_2", 
+                        TaskLoop2, 
+                        "Look_2", 
                         10000, 
                         NULL, 
                         1, 
@@ -28,8 +31,8 @@ void setup() {
   }
 
   taskCreationResult = xTaskCreatePinnedToCore(
-                        loop3, 
-                        "Task_3", 
+                        TaskLoop3, 
+                        "Look_3", 
                         10000, 
                         NULL, 
                         1, 
@@ -48,16 +51,11 @@ void setup() {
 }
 
 void loop() {
-  delay(1111);
-  Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
-  Serial.println("\t\t\t Loop uno (1) - 🤯🤯🤯");
-  cuenta++;
-  Serial.println("================================================================================");
-  Serial.println("desde loop -> " + String(cuenta));
-  TestHwm("loop");  
+  // Empty. Things are done in Tasks. 
 }
 
-void loop2(void *parameter){
+void TaskLoop2(void *pvParameters){
+  (void) pvParameters;
   for(;;){
     vTaskDelay(pdMS_TO_TICKS(2222));
     Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
@@ -69,7 +67,8 @@ void loop2(void *parameter){
   }
 }
 
-void loop3(void *parameter){
+void TaskLoop3(void *pvParameters){
+  (void) pvParameters;
   for(;;){
     vTaskDelay(pdMS_TO_TICKS(3333));
     Serial.println("\t\t\t En núcleo -> " +  String(xPortGetCoreID()));
