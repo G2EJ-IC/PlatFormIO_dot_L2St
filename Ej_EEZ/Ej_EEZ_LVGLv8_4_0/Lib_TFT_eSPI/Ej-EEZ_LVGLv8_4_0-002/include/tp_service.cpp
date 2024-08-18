@@ -44,4 +44,3 @@ void ICACHE_FLASH_ATTR tp_service::lv_no_sleep(uint32_t lv_sleep)
     }
     //my_delay_ms(5);
 }
-

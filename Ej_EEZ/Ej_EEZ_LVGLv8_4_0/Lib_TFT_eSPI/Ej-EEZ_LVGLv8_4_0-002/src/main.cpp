@@ -12,7 +12,7 @@ SemaphoreHandle_t cuentaMutex;
 io_service io;            // load IO control service
 display_service display;  // load display service
 tp_service tp;            // load touchpad
-// dhms_AIoT DateTime;       // load DateTime
+// dhms_AIoT DateTime;    // load DateTime
 
 //************************************************************************************************
 inline void loop_Task1(void);
